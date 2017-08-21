@@ -20,9 +20,10 @@ import { SearchModule } from './components/search/search.module';
 import { CardImageModule } from './components/card/card-image.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { AvatarModule } from '../../components/avatar/avatar.module';
 import { DescriptionModule } from '../../components/description/description.module';
 import { ProgressbarModule } from '../../components/progressbar/progressbar.module';
-import { CardModule } from '../../components/card/card.module';
+import { CardModule } from '../../component/card/card.module';
 import { BtnModule } from '../../components/btn/btn.module';
 import { SocialIconsModule } from '../../components/social-icons/social-icons.module';
 
@@ -17,7 +17,6 @@ import { CardContentModule } from '../../components/card/card-content.module';
 import { CardInforModule } from '../../components/card/card-infor.module';
 import { ReversePipe } from '../../pipe/reverse.pipe';
 import { HideimageDirective } from '../../directives/hideimage/hideimage.directive';
-
 
 @NgModule({
   imports: [
