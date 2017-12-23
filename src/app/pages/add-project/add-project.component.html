@@ -14,7 +14,7 @@
           <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap>
           
             <div fxFlex="42.5">
-              <input class="inputItem" type="text" name="title" id="" formControlName="projectTitle" placeholder="Title">
+              <input class="inputItem" type="text" name="title" id="" [ngModel]="postTitle" formControlName="projectTitle" placeholder="Title">
             </div>
 
             <div fxFlex="42.5">
@@ -65,21 +65,11 @@
       <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap class="imagebox" >
 
         <div class="imageSmail" fxFlex="45" fxFlex.xs="100">
-          <div class="smailBtn" [ngStyle.xs]="{'width': '250px'}">
-            <label for="smailImage">
-              <img #smailImage id="thum" src="" alt="">
-            </label>
-            <input type="file" name="thumnail" id="smailImage" (change)="smailImg($event)">
-          </div>
+          <kgp-upload-image-button type="smaill" [path]="postTitle" (downloadURLOut)="geturlSmaill($event)"></kgp-upload-image-button>
         </div>
 
         <div class="imageBig" fxFlex="45" fxFlex.xs="100">
-          <div class="bigBtn" [ngStyle.xs]="{'width': '250px'}">
-            <label for="bigImage">
-              <img #bigImage id="bigthun" src="" alt="">
-            </label>
-            <input type="file" name="fullsize" id="bigImage" (change)="bigImg($event)">
-          </div>
+          <kgp-upload-image-button type="big" [path]="postTitle" (downloadURLOut)="geturlBig($event)"></kgp-upload-image-button>
         </div>
 
       </div>
@@ -109,6 +99,3 @@
 
 </div>
 
-<h1>{{ test }}</h1>
-
-<kgp-upload-image-button type="smaill" path="testout" (downloadURLOut)="geturl($event)"></kgp-upload-image-button>

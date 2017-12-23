@@ -18,6 +18,8 @@ export class AddProjectComponent implements OnInit {
 
   public htmlView = false
 
+  postTitle: string
+
   constructor(
     public _ProjectService: ProjectService,
     private _TimestampService: TimestampService,
@@ -26,7 +28,6 @@ export class AddProjectComponent implements OnInit {
 
   ngOnInit() {
     this.forminit()
-    this._ProjectService.loadFirebaseStorage()
   }
 
   private forminit() {
@@ -50,7 +51,11 @@ export class AddProjectComponent implements OnInit {
     return this.htmlView = !this.htmlView
   }
 
-  geturl(e) {
+  geturlSmaill(e) {
+    console.log('output Url ', e)
+  }
+
+  geturlBig(e) {
     console.log('output Url ', e)
   }
 
