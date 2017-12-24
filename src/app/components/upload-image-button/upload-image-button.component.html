@@ -1,7 +1,7 @@
-<label for="imageFile">
-  <img #imageSrc [id]="type" src="" alt="" (load)="onload()">
+<label [for]="type + 'image'">
+  <img #imageSrc [id]="type + 'imageSrc'" src="" alt="" (load)="onload($event)">
 </label>
-<input type="file" name="imageFile" id="imageFile" (change)="addfile($event)" accept="image/*">
+<input type="file" name="imageFile" [id]="type + 'image'" (change)="addfile($event)" accept="image/*">
 
 <kgp-progressbar [level]="uploadPercent" [ngClass]="{'hideE': !uploading}"></kgp-progressbar>
 

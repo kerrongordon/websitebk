@@ -1,11 +1,11 @@
 
-<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start">
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" class="fullheight">
 
   <kgp-admin-bar fxFlex="6.5" fxFlex.sm="8" fxFlex.xs="100"></kgp-admin-bar>
 
   <div fxFlex="93.5" fxFlex.sm="92" fxFlex.xs="100" fxLayout="row" fxLayoutAlign="start">
 
-    <form class="form" [formGroup]="AddProjectForm" novalidate (ngSubmit)="onSubmit()">
+    <form class="form" [formGroup]="AddProjectForm" novalidate (keyup)="formUpdate()" (ngSubmit)="onSubmit()">
 
       <div class="kgpContainer contain">
 
@@ -14,11 +14,11 @@
           <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap>
           
             <div fxFlex="42.5">
-              <input class="inputItem" type="text" name="title" id="" [ngModel]="postTitle" formControlName="projectTitle" placeholder="Title">
+              <input class="inputItem" type="text" [value]="postTitleBind" (input)="postTitleBind = $event.target.value" name="title" id="projectTitle" formControlName="projectTitle" placeholder="Title">
             </div>
 
             <div fxFlex="42.5">
-              <input class="inputItem" type="text" name="title" id="" formControlName="projectUrl" placeholder="Projects URL">
+              <input class="inputItem" type="text" name="title" id="projectUrl" formControlName="projectUrl" placeholder="Projects URL">
             </div>
 
             <div fxFlex="15">
@@ -62,20 +62,20 @@
 
       </div>
       
-      <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap class="imagebox" >
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap class="imagebox" [ngClass]="{'hide': !toggleImageView}">
 
         <div class="imageSmail" fxFlex="45" fxFlex.xs="100">
-          <kgp-upload-image-button type="smaill" [path]="postTitle" (downloadURLOut)="geturlSmaill($event)"></kgp-upload-image-button>
+          <kgp-upload-image-button id="smaill" type="small" [postTitle]="postTitleBind" (downloadURLOut)="geturlSmaill($event)" (click)="locktitle()"></kgp-upload-image-button>
         </div>
 
         <div class="imageBig" fxFlex="45" fxFlex.xs="100">
-          <kgp-upload-image-button type="big" [path]="postTitle" (downloadURLOut)="geturlBig($event)"></kgp-upload-image-button>
+          <kgp-upload-image-button id="big" type="big" [postTitle]="postTitleBind" (downloadURLOut)="geturlBig($event)" (click)="locktitle()"></kgp-upload-image-button>
         </div>
 
       </div>
 
 
-      <div class="centerBtn">
+      <div class="kgpContainer contain centerBtn">
 
         <button type="submit" class="btn secondary padm">
           <div class="btnicon">
@@ -98,4 +98,3 @@
   </div>
 
 </div>
-

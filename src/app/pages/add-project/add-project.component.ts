@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { ProjectService } from '../../services/project/project.service'
 import { TimestampService } from '../../services/timestamp/timestamp.service'
 import { MarkdownService } from '../../services/markdown/markdown.service'
-import { Project } from '../../interface/Project'
+import { Project, Imagen } from '../../interface/Project'
 
 @Component({
   selector: 'kgp-add-project',
@@ -13,12 +13,17 @@ import { Project } from '../../interface/Project'
 })
 export class AddProjectComponent implements OnInit {
 
-  public AddProjectForm: FormGroup
-  public markdown: string
+  bigImage: Imagen
+  smaillImage: Imagen
 
-  public htmlView = false
+  AddProjectForm: FormGroup
+  markdown: string
+
+  htmlView = false
 
   postTitle: string
+  postTitleBind = ''
+  toggleImageView = false
 
   constructor(
     public _ProjectService: ProjectService,
@@ -34,7 +39,7 @@ export class AddProjectComponent implements OnInit {
     return this.AddProjectForm = new FormGroup({
       projectTitle: new FormControl('', {
         validators: Validators.compose([Validators.required, Validators.minLength(3)]),
-        updateOn: 'change'
+        updateOn: 'change',
       }),
       projectUrl: new FormControl('', {
         validators: Validators.compose([Validators.required, Validators.minLength(5)]),
@@ -47,80 +52,89 @@ export class AddProjectComponent implements OnInit {
     })
   }
 
+  formUpdate() {
+    const { projectTitle } = this.AddProjectForm.value
+    if (projectTitle !== '') {
+      return this.toggleImageView = true
+    } else {
+      return this.toggleImageView = false
+    }
+  }
+
+  locktitle() {
+
+  }
+
   toggleView() {
     return this.htmlView = !this.htmlView
   }
 
-  geturlSmaill(e) {
-    console.log('output Url ', e)
+  geturlSmaill(e: Imagen): Promise<Imagen>  {
+    return new Promise( (resolve, reject) => {
+      this.smaillImage = e
+      resolve(this.smaillImage)
+    })
   }
 
-  geturlBig(e) {
-    console.log('output Url ', e)
+  geturlBig(e: Imagen): Promise<Imagen> {
+    return new Promise( (resolve, reject) => {
+      this.bigImage = e
+      resolve(this.bigImage)
+    })
   }
 
-  public resetEmailForm() {
+  resetEmailForm() {
     this.markdown = ''
-    return this.AddProjectForm.reset()
+    this.AddProjectForm.reset()
   }
 
-  public textToMarkDown(text) {
+  textToMarkDown(text) {
     return this.markdown = this._MarkdownService.convert(text)
   }
 
-  // public onSubmit() {
-  //   if (!this.AddProjectForm.valid) { return }
+  onSubmit() {
+    console.log('this.AddProjectForm.valid', this.AddProjectForm.valid)
+    if (!this.AddProjectForm.valid) { return }
 
-  //   const { projectTitle, projectMarkdown, projectUrl } = this.AddProjectForm.value
-  //   const getId = this._TimestampService.getTheId()
+    const { projectTitle, projectMarkdown, projectUrl } = this.AddProjectForm.value
+    const getId = this._TimestampService.getTheId()
 
+    console.log('send')
 
+    Promise.all([
+      this.smaillImage,
+      this.bigImage
+    ]).then(e => {
 
-  //   Promise.all([
+      const projectPush: Project = {
+        id: getId,
+        title: projectTitle,
+        content: projectMarkdown,
+        markdown: this.markdown,
+        url: projectUrl,
+        image: {
+          small: this.smaillImage,
+          big: this.bigImage
+        },
+        timestamp: {
+          timestamp: this._TimestampService.getTimestamp(),
+          month: this._TimestampService.getTheMonth(),
+          weekday: this._TimestampService.getTheWeekday(),
+          year: this._TimestampService.getTheYear(),
+          date: this._TimestampService.getTheDateNum(),
+          time: this._TimestampService.getTheTime()
+        },
+      }
 
-  //   ]).then(e => {
+      this._ProjectService.addProject(getId, projectPush)
+      console.log(projectPush)
+    }).then(e => {
+      this.resetEmailForm()
+    })
+    .catch(error => {
+      console.log('error ', error)
+    })
 
-  //     const projectPush: Project = {
-  //       id: getId,
-  //       title: projectTitle,
-  //       content: projectMarkdown,
-  //       markdown: this.markdown,
-  //       url: projectUrl,
-  //       image: {
-  //         small: {
-  //           base64: thumbnailBase64,
-  //           name: this.smallImageLoad[0].name,
-  //           size: this.smallImageLoad[0].size,
-  //           type: this.smallImageLoad[0].type,
-  //           url: this.simg.__zone_symbol__value
-  //         },
-  //         big: {
-  //           base64: desktopBase64,
-  //           name: this.bigImageLoad[0].name,
-  //           size: this.bigImageLoad[0].size,
-  //           type: this.bigImageLoad[0].type,
-  //           url: this.bimg.__zone_symbol__value
-  //         }
-  //       },
-  //       timestamp: {
-  //         timestamp: this._TimestampService.getTimestamp(),
-  //         month: this._TimestampService.getTheMonth(),
-  //         weekday: this._TimestampService.getTheWeekday(),
-  //         year: this._TimestampService.getTheYear(),
-  //         date: this._TimestampService.getTheDateNum(),
-  //         time: this._TimestampService.getTheTime()
-  //       },
-  //     }
-
-  //     this._ProjectService.addProject(getId, projectPush)
-  //     console.log(projectPush)
-  //   }).then(e => {
-  //     this.resetEmailForm()
-  //   })
-  //   .catch(error => {
-  //     console.log('error ', error)
-  //   })
-
-  // }
+  }
 
 }
