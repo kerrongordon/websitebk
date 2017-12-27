@@ -1,14 +1,16 @@
 <header 
-  fxLayout="row" 
+  fxLayout="row"
+  [ngStyle.xs]="{'padding': '0'}"
   class="headerBar">
 
   <div 
     fxFlex="5" 
     fxFlex.xs="35" 
     fxFlex.sm="10"
+    class="icon"
     routerLink="/">
 
-      <i class="material-icons">home</i>
+      <i class="fas fa-home fa-fw fa-lg"></i>
 
   </div>
 
@@ -24,16 +26,17 @@
       [ngClass]="{'isActive': toggleSearchClass}">
 
       <div 
-        fxFlex="5" 
-        fxFlex.sm="10">
+        fxFlex="4" 
+        class="iconInput"
+        fxFlex.sm="7">
 
-        <i class="material-icons seaicon">search</i>
+        <i class="fas fa-search"></i>
 
       </div>
 
       <div 
-        fxFlex="95" 
-        fxFlex.sm="90">
+        fxFlex="96" 
+        fxFlex.sm="93">
 
         <input 
           class="search" 
@@ -89,12 +92,12 @@
     fxFlex.sm="20" 
     fxLayout="row">
 
-    <div fxFlex="50" routerLink="/projects">
-      <i class="material-icons">library_books</i>
+    <div fxFlex="50" routerLink="/projects" class="icon">
+      <i class="fas fa-list-ul fa-fw fa-lg"></i>
     </div>
 
-    <div fxFlex="50" routerLink="/login">
-      <i class="material-icons">account_circle</i>
+    <div fxFlex="50" routerLink="/login" class="icon">
+      <i class="fas fa-sign-in-alt fa-fw fa-lg"></i>
     </div>
 
   </div>

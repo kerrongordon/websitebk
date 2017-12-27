@@ -12,7 +12,7 @@
     class="formitem" [ngClass]="inputClass1">
 
     <div class="icon">
-      <i class="material-icons">person_pin</i>
+      <i class="fas fa-user-circle fa-fw fa-lg"></i>
     </div>
 
     <div fxFlex="95">
@@ -35,7 +35,7 @@
     class="formitem" [ngClass]="inputClass4">
   
     <div class="icon">
-      <i class="material-icons">assignment</i>
+      <i class="fas fa-industry fa-fw fa-lg"></i>
     </div>
   
     <div fxFlex="95">
@@ -58,7 +58,7 @@
     class="formitem" [ngClass]="inputClass2">
   
     <div class="icon">
-      <i class="material-icons">email</i>
+      <i class="fas fa-envelope fa-fw fa-lg"></i>
     </div>
   
     <div fxFlex="95">
@@ -81,7 +81,7 @@
     class="formitem" [ngClass]="inputClass3">
   
     <div class="icon">
-      <i class="material-icons">chat</i>
+      <i class="fas fa-comments fa-fw fa-lg"></i>
     </div>
   
     <div fxFlex="95">
@@ -102,11 +102,10 @@
    
     <button 
       class="btn secondary" 
-      [ngClass]="{ 'disable':!loading }" 
       type="submit" [disabled]="!emailForm.valid">
 
       <div class="btnicon">
-        <i class="material-icons">send</i>
+        <i class="fab fa-cloudsmith fa-fw fa-lg"></i>
       </div>
 
       <div class="btntext">
