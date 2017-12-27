@@ -1,17 +1,8 @@
-<div *ngIf="ctitle; else load">
+<div *ngIf="ctitle">
     <h4 class="hideOText">{{ ctitle | truncate: 20 }}</h4>
     <p>{{ content | truncate: 50 }}</p>
-    <span> 
-        <i class="material-icons">access_time</i>
+    <span>
+        <i class="far fa-clock fa-fw fa-lg"></i>
         Posted On {{ monthS }} {{ day }}, {{ year }}
     </span>
 </div>
-
-<ng-template #load>
-    <div class="facebookloading w40 hs12 pad"></div>
-    <div class="facebookloading w75 hs5 pad"></div>
-    <div class="facebookloading w50 hs5 pad"></div>
-    <span>
-        <div class="facebookloading w70"></div>
-    </span>
-</ng-template>

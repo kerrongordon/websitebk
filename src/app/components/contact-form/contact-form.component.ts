@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { NotificationService } from '../../services/notification/notification.service'
 import { TimestampService } from '../../services/timestamp/timestamp.service'
@@ -13,8 +13,6 @@ import { Email } from '../../interface/email'
   providers: [NotificationService, SendMessageService, TimestampService, MarkdownService]
 })
 export class ContactFormComponent implements OnInit {
-
-  @Input() loading: boolean
 
   inputClass1 = ''
   inputClass2 = ''

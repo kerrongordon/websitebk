@@ -3,7 +3,6 @@ import { DescriptionService, Description } from '../../services/description/desc
 import { SkillsService, Skills } from '../../services/skills/skills.service'
 import { Subscription } from 'rxjs/Subscription'
 import { ProjectService } from '../../services/project/project.service'
-import { skillsPlaceholder, projectplaceholder } from './../../exports/placeholder'
 import { Project } from '../../interface/Project'
 
 @Component({
@@ -14,16 +13,13 @@ import { Project } from '../../interface/Project'
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
+  des: Description
+  skillsInit: Skills[]
+  projectsInit: Project[]
+
+  private desSub: Subscription
   private skillSub: Subscription
   private projectSub: Subscription
-  private desSub: Subscription
-  public skillsInit: Skills[] = skillsPlaceholder
-  public projectsInit: Project[] = projectplaceholder
-  public des: Description
-
-  contentLoaded = false
-
-  pagetitle: string
 
   constructor(
     private _ds: DescriptionService,
@@ -39,11 +35,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   loadProjects() {
     return this.projectSub = this._ps.loadListOfProjects()
-      .subscribe(data => {
-        this.projectsInit = data.reverse().slice(0, 4)
-        this.contentLoaded = true
-        this.pagetitle = 'Kerron Gordon'
-      })
+      .subscribe(data => this.projectsInit = data.reverse().slice(0, 4))
   }
 
   loadSkills() {
@@ -60,7 +52,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.desSub.unsubscribe()
     this.skillSub.unsubscribe()
     this.projectSub.unsubscribe()
-    this.contentLoaded = false
   }
 
 }

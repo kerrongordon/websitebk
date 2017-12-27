@@ -1,12 +1,3 @@
-<p *ngIf="content; else loading">
+<p *ngIf="content">
   {{ content.content }}
 </p>
-
-<ng-template #loading>
-  <div class="floading">
-    <div class="facebookloading"></div>
-    <div class="facebookloading w90"></div>
-    <div class="facebookloading w95"></div>
-    <div class="facebookloading w90"></div>
-  </div>
-</ng-template>

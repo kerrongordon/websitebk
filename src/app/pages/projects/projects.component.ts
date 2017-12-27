@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
 import { ProjectService } from '../../services/project/project.service'
-import { projectplaceholder } from './../../exports/placeholder'
 import { Subscription } from 'rxjs/Subscription'
 import { Project } from '../../interface/Project'
 
@@ -12,8 +11,8 @@ import { Project } from '../../interface/Project'
 })
 export class ProjectsComponent implements OnInit, OnDestroy {
 
+  projectsInit: Project[]
   private projectSub: Subscription
-  public projectsInit: Project[] = projectplaceholder
 
   constructor(private _ps: ProjectService) { }
 
@@ -22,7 +21,8 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   }
 
   loadProjects() {
-    return this.projectSub = this._ps.loadListOfProjects().subscribe(data => this.projectsInit = data.reverse())
+    return this.projectSub = this._ps.loadListOfProjects()
+      .subscribe(data => this.projectsInit = data.reverse())
   }
 
   ngOnDestroy() {

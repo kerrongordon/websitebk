@@ -1,12 +1,7 @@
-<div *ngIf="content; else load">
+<div *ngIf="content">
   <h4>{{ content }}</h4>
   <div>
     <span [ngStyle]="{'left': level+'%'}">{{ level }}</span>
     <kgp-progressbar [level]="level"></kgp-progressbar>
   </div>
 </div>
-
-<ng-template #load>
-  <div class="facebookloading w40 hs12"></div>
-  <div class="facebookloading hs5"></div>
-</ng-template>
