@@ -1,41 +1,26 @@
-<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" class="fullheight">
 
-  <kgp-admin-bar fxFlex="6.5" fxFlex.sm="8" fxFlex.xs="100"></kgp-admin-bar>
+  <kgp-admin-bar></kgp-admin-bar>
 
-  <div fxFlex="93.5" fxFlex.sm="92" fxFlex.xs="100" class="dashboardPage" fxLayout="row" fxLayoutAlign="start">
+  <div class="dashboardPage">
 
-  <div class="dashboard" fxFlex="100">
+    <div class="header">
 
-    <div class="header" fxLayout="row" fxLayoutWrap>
-
-      <div class="item projects" fxLayout="row" fxLayout.sm="column" fxFlex="21.5" fxFlex.sm="26" fxFlex.xs="100">
-        <div class="icon">
-          <i class="material-icons big">format_list_bulleted</i>
-        </div>
-        <div>
-          <h3>Projects</h3>
-          <h1>{{ projectNum }}</h1>
-        </div>
+      <div class="item projects">
+        <div class="icon"><i class="fas fa-list-ul fa-fw fa-lg"></i></div>
+        <div><h3>Projects</h3></div>
+        <div><h1>{{ projectNum }}</h1></div>
       </div>
 
-      <div class="item skills" fxLayout="row" fxLayout.sm="column" fxFlex="21.5" fxFlex.sm="26" fxFlex.xs="100">
-        <div class="icon">
-          <i class="material-icons big">timeline</i>
-        </div>
-        <div>
-          <h3>Skills</h3>
-          <h1>{{ skillsNum }}</h1>
-        </div>
+      <div class="item skills">
+        <div class="icon"><i class="far fa-chart-bar fa-fw fa-lg"></i></div>
+        <div><h3>Skills</h3></div>
+        <div><h1>{{ skillsNum }}</h1></div>
       </div>
 
-      <div class="item messages" fxLayout="row" fxLayout.sm="column" fxFlex="21.5" fxFlex.sm="26" fxFlex.xs="100">
-        <div class="icon">
-          <i class="material-icons big">message</i>
-        </div>
-        <div>
-          <h3>Messages</h3>
-          <h1>{{ messageNum }}</h1>
-        </div>
+      <div class="item messages">
+        <div class="icon"><i class="far fa-envelope fa-fw fa-lg"></i></div>
+        <div><h3>Messages</h3></div>
+        <div><h1>{{ messageNum }}</h1></div>
       </div>
 
     </div> 
@@ -44,8 +29,8 @@
     <div class="editbar">
 
       <div class="card">
-        <ul fxLayout="row" fxLayoutWrap>
-          <li *ngFor="let item of projects" [id]="item.id" fxFlex.xs="100">
+        <ul>
+          <li *ngFor="let item of projects" [id]="item.id">
             <h4>{{ item.title }}</h4>
             <p>{{ item.content | truncate: 50 }}</p>
             <div class="date">Posted On {{ item.timestamp.month }} {{ item.timestamp.date }}, {{ item.timestamp.year }}</div>
@@ -56,7 +41,3 @@
     </div>
 
   </div>
-
-  </div>
-
-</div>

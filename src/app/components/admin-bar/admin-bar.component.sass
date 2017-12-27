@@ -26,8 +26,24 @@
 
 .bar
     text-align: center
+    display: grid
+    grid-template-columns: repeat(5, 1fr)
 
-.title
+.menuTitle
+    display: none
     margin: 0
     font-weight: 400
     font-size: 12px
+
+@media screen and (min-width: 600px) and (max-width: 959px)
+
+    .bar
+        grid-template-columns: 1fr
+
+@media screen and (min-width: 960px)
+
+    .bar
+        grid-template-columns: 1fr
+
+    .menuTitle
+        display: block
