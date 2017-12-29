@@ -13,7 +13,7 @@ import { Email } from '../../interface/email'
 export class EmailComponent implements OnInit, OnDestroy {
 
   private messagesSub: Subscription
-  private openMessageSub: Subscription
+  private openMessageSub: Subscription = null
 
   messages: Email[]
   openMassageItem: Email
@@ -46,6 +46,7 @@ export class EmailComponent implements OnInit, OnDestroy {
   openMessage(id) {
     if (!id) {return}
     this.activeItem = id
+    if (this.openMessageSub !== null) { this.cleanMail() }
     return this.openMessageSub = this._sm.openMessage(id)
       .subscribe(data => {
         this.openMassageItem = data[0]
@@ -62,12 +63,18 @@ export class EmailComponent implements OnInit, OnDestroy {
   }
 
   closeOpenMail() {
+    this.cleanMail()
     return this.toggleMobileBtn()
+  }
+
+  cleanMail() {
+    this.openMessageSub.unsubscribe()
+    return this.openMessageSub = null
   }
 
   ngOnDestroy() {
     this.messagesSub.unsubscribe()
-    if (this.openMessageSub !== null ) { this.openMessageSub.unsubscribe() }
+    if (this.openMessageSub !== null) {this.cleanMail()}
   }
 
 }
