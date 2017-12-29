@@ -4,6 +4,10 @@
     <span>Read ({{ readMail }})</span>
 </div>
 
-<div class="list" *ngIf="totalMail">
+<div class="list" *ngIf="totalMail != 0; else loading">
     <ng-content></ng-content>
 </div>
+
+<ng-template #loading>
+    <h3 class="nomail">No Mail</h3>
+</ng-template>
