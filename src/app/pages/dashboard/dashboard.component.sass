@@ -1,11 +1,20 @@
 @import '../../var.sass'
 
 \:host 
-    display: block
+    overflow: hidden
+    display: grid
+    position: relative
+    height: 100vh
     background: $adminbg
+
+::-webkit-scrollbar
+    display: none
 
 .dashboardPage
     display: grid
+    overflow-x: hidden
+    overflow-y: scroll
+    height: 100vh
     box-shadow: $sidebarShadow
 
 .header
@@ -22,6 +31,7 @@
         text-align: center
         border-radius: 3px
         align-items: center
+        height: 150px
         grid-template-columns: 1fr
 
     h1,
@@ -98,3 +108,4 @@ ul
 
         .item
             padding: 3em
+            height: 200px

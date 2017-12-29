@@ -1,19 +1,23 @@
 <div *ngIf="data; else loading">
-  <ng-content></ng-content>
 
-  <h4 class="subject">{{ data.subject }}</h4>
+  <header>
+    
+    <h4 class="subject">{{ data.subject }}</h4>
+    <ng-content></ng-content>
+    
+    <div class="senderinfor">
+      <h5>Sender:
+        <span>{{ data.email }}</span>
+      </h5>
+      <h5>Name:
+        <span>{{ data.name }}</span>
+      </h5>
+      <h5>Time:
+        <span>{{ data.timestamp.time.hours }}:{{ data.timestamp.time.seconds }} {{ data.timestamp.month }} {{ data.timestamp.date }}, {{ data.timestamp.year }}</span>
+      </h5>
+    </div>
 
-  <div class="senderinfor">
-    <h5>Sender:
-      <span>{{ data.email }}</span>
-    </h5>
-    <h5>Name:
-      <span>{{ data.name }}</span>
-    </h5>
-    <h5>Time:
-      <span>{{ data.timestamp.time.hours }}:{{ data.timestamp.time.seconds }} {{ data.timestamp.month }} {{ data.timestamp.date }}, {{ data.timestamp.year }}</span>
-    </h5>
-  </div>
+  </header>
 
   <div class="meassage">
     <div [innerHTML]="data.markdown"></div>
@@ -32,7 +36,9 @@
 
 <ng-template #loading>
   <div class="load">
-    <i class="material-icons">message</i>
+    <div class="icon">
+      <i class="far fa-envelope"></i>
+    </div>
     <h3>No Messages Selected</h3>
   </div>
 </ng-template>

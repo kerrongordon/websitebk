@@ -1,5 +1,7 @@
 {
   "prettier.semi": false,
   "autoimport.useSemiColon": false,
-  "typescriptHero.resolver.insertSemicolons": false
+  "typescriptHero.resolver.insertSemicolons": false,
+  "editor.tabSize": 4,
+  "prettier.tabWidth": 4
 }

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule, Routes } from '@angular/router'
-import { FlexLayoutModule } from '@angular/flex-layout'
 import { EmailComponent } from './email.component'
 import { AngularFirestoreModule } from 'angularfire2/firestore'
 
@@ -20,7 +19,6 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    FlexLayoutModule,
     AngularFirestoreModule,
     TruncateModule,
     EmailListModule,

@@ -1,5 +1,5 @@
 \:host
-    display: block
+    display: grid
     position: relative
     padding: 20px
     background: #ffffff
@@ -7,6 +7,7 @@
     overflow-y: scroll
     height: 100vh
     z-index: 3
+    grid-template-columns: 1fr
     box-shadow: -20px 0px 20px 0px rgba(213, 213, 228, 0.341176), -1px 0px 0px 0px rgba(0, 0, 0, 0.0313725)
 
 h4, h5
@@ -42,8 +43,8 @@ h4
     flex-direction: column
     height: 100vh
 
-    i
-        font-size: 200px
+.icon
+    font-size: 200px
 
 .footer
     max-width: 700px

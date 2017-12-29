@@ -46,9 +46,11 @@ export class EmailComponent implements OnInit, OnDestroy {
   openMessage(id) {
     if (!id) {return}
     this.activeItem = id
-    this.toggleMobileBtn()
     return this.openMessageSub = this._sm.openMessage(id)
-      .subscribe(data => this.openMassageItem = data[0])
+      .subscribe(data => {
+        this.openMassageItem = data[0]
+        this.toggleMobileBtn()
+      })
   }
 
   deleteMessage(id) {
@@ -65,7 +67,7 @@ export class EmailComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.messagesSub.unsubscribe()
-    if (this.openMessageSub) { this.openMessageSub.unsubscribe() }
+    if (this.openMessageSub !== null ) { this.openMessageSub.unsubscribe() }
   }
 
 }

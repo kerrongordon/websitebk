@@ -1,13 +1,7 @@
-<h4>{{ data.name }}
-  <span class="time">
-    <div class="icon">
-      
-      <i class="material-icons close" [ngClass]="{'isActive': !data.open, 'tada': true }">message</i>
-      <i class="material-icons open" [ngClass]="{'isActive': data.open }">message</i>
-     
-    </div>
-    <div>{{ data.timestamp.time.hours }}:{{ data.timestamp.time.seconds }}</div>
-  </span>
+<h4>
+  <div>{{ data.name }}</div>
+  <div class="icon time"><i class="far fa-envelope-open fa-fw fa-lg close" [ngClass]="{'isActive': !data.open, 'tada': true }"></i><i class="far fa-envelope fa-fw fa-lg open" [ngClass]="{'isActive': data.open }"></i></div>
+  <div class="time">{{ data.timestamp.time.hours }}:{{ data.timestamp.time.seconds }}</div>
 </h4>
 <h5>{{ data.subject }}</h5>
 <p>{{ data.message | truncate: 70 }}</p>
