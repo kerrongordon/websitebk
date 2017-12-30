@@ -1,7 +1,7 @@
-<div class="loginform">
-
   <div class="userIcon">
-    <i class="material-icons big">person_pin</i>
+    <div class="borderline"></div>
+    <div class="roundblue"></div>
+    <div class="icon"><i class="fas fa-user-circle fa-fw"></i></div>
   </div>
 
   <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
@@ -17,20 +17,20 @@
     <div class="item item-btn">
       <button type="submit" class="btn primary">
         <div class="btnicon">
-          <i class="material-icons">input</i>
+          <i class="fas fa-sign-in-alt fa-fw"></i>
         </div>
         <div>Login</div>
       </button>
 
       <button type="button" class="btn secondary" routerLink="''">
         <div class="btnicon">
-          <i class="material-icons">cancel</i>
+          <i class="fas fa-times-circle fa-fw"></i>
         </div>
         <div>Cancel</div>
       </button>
     </div>
 
   </form>
-</div>
 
-<kgp-footer [ngStyle]="{'background-color': '#ecf1f6'}"></kgp-footer>
+
+<kgp-footer></kgp-footer>
