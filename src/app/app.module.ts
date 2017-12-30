@@ -10,6 +10,7 @@ import { environment } from '../environments/environment'
 import { ServiceWorkerModule } from '@angular/service-worker'
 import { NotificationModule } from './components/notification/notification.module'
 import { AngularFireStorageModule } from 'angularfire2/storage'
+import { AngularFirestoreModule } from 'angularfire2/firestore'
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage'
     NotificationModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
+    AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     AngularFireStorageModule

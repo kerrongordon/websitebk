@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule, Routes } from '@angular/router'
 import { EmailComponent } from './email.component'
-import { AngularFirestoreModule } from 'angularfire2/firestore'
 
 import { TruncateModule } from '../../pipe/truncate/truncate.module'
 import { ReversePipe } from '../../pipe/reverse/reverse.pipe'
@@ -19,7 +18,6 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    AngularFirestoreModule,
     TruncateModule,
     EmailListModule,
     EmailListItemModule,

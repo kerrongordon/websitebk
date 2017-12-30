@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule, Routes } from '@angular/router'
 import { FlexLayoutModule } from '@angular/flex-layout'
-import { AngularFirestoreModule } from 'angularfire2/firestore'
 import { ProjectsComponent } from './projects.component'
 
 import { CenterModule } from '../../directives/center/center.module'
@@ -28,7 +27,6 @@ const routes: Routes = [
     CardImageModule,
     CardContentModule,
     FooterModule,
-    AngularFirestoreModule,
     FlexLayoutModule,
     RouterModule.forChild(routes)
   ],
