@@ -1,10 +1,31 @@
 @import '../../var.sass'
 
-.inforBox
-    background: transparent
-    padding: 5px
-    max-width: 1200px
-    margin: 20px auto
+\:host
+    display: grid
+    height: 100vh
+    overflow: hidden
+    position: relative
+    background: $adminbg
+
+::-webkit-scrollbar
+    display: none
+
+.addprojectpage
+    display: grid
+    overflow-x: hidden
+    overflow-y: scroll
+    height: 100vh
+    box-shadow: $sidebarShadow
+
+
+.gridInput
+    display: grid
+    grid-template-columns: 1fr auto
+    align-items: center
+
+.imagebox
+    display: grid
+    grid-template-columns: 1fr
 
 .markDownInput
     width: 100%
@@ -16,14 +37,14 @@
     font-size: inherit
     line-height: inherit
     overflow: hidden
-    min-height: 200px
+    min-height: 400px
     resize: none
     outline: none
     background: transparent
 
 .markdownOutput
     padding: 15px
-    min-height: 208px
+    min-height: 408px
 
 .inputItem
     width: 100%
@@ -34,34 +55,33 @@
     outline: none
     background: transparent
 
-.imagebox
+.btnc
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 1em
+    max-width: 235px
+    margin: 0 auto 2em
+    padding-bottom: 1em
+
+form
     max-width: 1000px
-    margin: 0 auto
-    align-items: normal
-    justify-content: space-between
+    margin: 2em auto
+    padding: 0 1em
 
-.centerBtn
-    display: flex
-    justify-content: flex-end
+@media screen and (min-width: 600px)
 
-    button
-        margin: 10px
-    
+    \:host
+        display: grid
+        grid-template-columns: auto 1fr
 
-.form
-    width: 100%
-    background: $adminbg
-    position: relative
-    z-index: 1
-    padding: 40px 0
-    box-shadow: $sidebarShadow
+    .imagebox
+        grid-template-columns: 1fr 1fr
+        max-width: 750px
+        margin: 2em auto
+        grid-gap: 1em
 
-.contain
-    margin: 0 auto
-    max-width: 1000px
 
-.padm
-    margin: 0 
-    
-.hide
-    visibility: hidden
+
+
+.hideView
+    display: none

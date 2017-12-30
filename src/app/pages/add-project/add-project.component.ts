@@ -41,7 +41,11 @@ export class AddProjectComponent implements OnInit {
         validators: Validators.compose([Validators.required, Validators.minLength(3)]),
         updateOn: 'change',
       }),
-      projectUrl: new FormControl('', {
+      projectWebUrl: new FormControl('', {
+        validators: Validators.compose([Validators.required, Validators.minLength(5)]),
+        updateOn: 'change'
+      }),
+      projectGitUrl: new FormControl('', {
         validators: Validators.compose([Validators.required, Validators.minLength(5)]),
         updateOn: 'change'
       }),
@@ -96,7 +100,7 @@ export class AddProjectComponent implements OnInit {
     console.log('this.AddProjectForm.valid', this.AddProjectForm.valid)
     if (!this.AddProjectForm.valid) { return }
 
-    const { projectTitle, projectMarkdown, projectUrl } = this.AddProjectForm.value
+    const { projectTitle, projectMarkdown, projectWebUrl, projectGitUrl } = this.AddProjectForm.value
     const getId = this._TimestampService.getTheId()
 
     console.log('send')
@@ -111,7 +115,8 @@ export class AddProjectComponent implements OnInit {
         title: projectTitle,
         content: projectMarkdown,
         markdown: this.markdown,
-        url: projectUrl,
+        weburl: projectWebUrl,
+        giturl: projectGitUrl,
         image: {
           small: this.smaillImage,
           big: this.bigImage

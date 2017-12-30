@@ -1,100 +1,75 @@
+<kgp-admin-bar></kgp-admin-bar>
 
-<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" class="fullheight">
+<div class="addprojectpage">
 
-  <kgp-admin-bar fxFlex="6.5" fxFlex.sm="8" fxFlex.xs="100"></kgp-admin-bar>
+  <form class="form" [formGroup]="AddProjectForm" (keyup)="formUpdate()" (ngSubmit)="onSubmit()">
 
-  <div fxFlex="93.5" fxFlex.sm="92" fxFlex.xs="100" fxLayout="row" fxLayoutAlign="start">
+    <div class="gridInput">
+      <div>
+        <input class="inputItem" type="text" [value]="postTitleBind" (input)="postTitleBind = $event.target.value" name="title" id="projectTitle"
+          formControlName="projectTitle" placeholder="Title">
 
-    <form class="form" [formGroup]="AddProjectForm" novalidate (keyup)="formUpdate()" (ngSubmit)="onSubmit()">
+        <input class="inputItem" type="text" name="projectWebUrl" id="projectWebUrl" formControlName="projectWebUrl" placeholder="Projects Website Url">
 
-      <div class="kgpContainer contain">
-
-        <div class="inforBox">
-
-          <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap>
-          
-            <div fxFlex="42.5">
-              <input class="inputItem" type="text" [value]="postTitleBind" (input)="postTitleBind = $event.target.value" name="title" id="projectTitle" formControlName="projectTitle" placeholder="Title">
-            </div>
-
-            <div fxFlex="42.5">
-              <input class="inputItem" type="text" name="title" id="projectUrl" formControlName="projectUrl" placeholder="Projects URL">
-            </div>
-
-            <div fxFlex="15">
-
-              <button (click)="toggleView()"  class="btn secondary">
-                <div class="btnicon">
-                  <i class="material-icons" [fxHide]="htmlView" >code</i>
-                  <i class="material-icons" [fxHide]="!htmlView">border_color</i>
-                </div>
-                <div [fxHide]="htmlView">View</div>
-                <div [fxHide]="!htmlView">Edit</div>
-              </button>
-              
-            </div>
-
-          </div>
-
-          <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap>
-
-            <div fxFlex="100">
-
-              <textarea 
-                type="text" 
-                name="markdown"
-                [fxHide]="htmlView"
-                class="markDownInput" 
-                placeholder="Add Markdown Here"
-                formControlName="projectMarkdown"
-                (keyup)="textToMarkDown($event.target.value)"></textarea>
-
-                <div 
-                  [fxHide]="!htmlView" 
-                  class="markdownOutput" 
-                  [innerHTML]="markdown | urlsan"></div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-      
-      <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap class="imagebox" [ngClass]="{'hide': !toggleImageView}">
-
-        <div class="imageSmail" fxFlex="45" fxFlex.xs="100">
-          <kgp-upload-image-button id="smaill" type="small" [postTitle]="postTitleBind" (downloadURLOut)="geturlSmaill($event)" (click)="locktitle()"></kgp-upload-image-button>
-        </div>
-
-        <div class="imageBig" fxFlex="45" fxFlex.xs="100">
-          <kgp-upload-image-button id="big" type="big" [postTitle]="postTitleBind" (downloadURLOut)="geturlBig($event)" (click)="locktitle()"></kgp-upload-image-button>
-        </div>
-
+        <input class="inputItem" type="text" name="projectGitUrl" id="projectGitUrl" formControlName="projectGitUrl" placeholder="Projects Github Url">
       </div>
 
+      <div>
 
-      <div class="kgpContainer contain centerBtn">
-
-        <button type="submit" class="btn secondary padm">
-          <div class="btnicon">
-            <i class="material-icons">save</i>
+        <button (click)="toggleView()" class="btn secondary">
+          <div class="btnicon" [ngClass]="{'hideView': htmlView}">
+            <i class="fas fa-code fa-fw" ></i>
           </div>
-          <div>Submit</div>
-        </button>
-
-        <button type="button" class="btn primary" (click)="resetEmailForm()">
-          <div class="btnicon">
-            <i class="material-icons">cancel</i>
+          <div class="btnicon" [ngClass]="{'hideView': !htmlView}">
+            <i class="far fa-edit fa-fw"></i>
           </div>
-          <div>Cancel</div>
+          <div [ngClass]="{'hideView': htmlView}">View</div>
+          <div [ngClass]="{'hideView': !htmlView}">Edit</div>
         </button>
 
       </div>
 
-    </form>
+    </div>
 
-  </div>
+    <div>
+
+      <textarea kgpAutosize type="text" name="markdown" class="markDownInput" placeholder="Add Markdown Here" formControlName="projectMarkdown"
+        (keyup)="textToMarkDown($event.target.value)" [ngClass]="{'hideView': htmlView}"></textarea>
+
+      <div class="markdownOutput" [ngClass]="{'hideView': !htmlView}" [innerHTML]="markdown | urlsan"></div>
+
+    </div>
+
+    <div class="imagebox" [ngClass]="{'hideView': !toggleImageView}">
+
+      <div class="imageSmail">
+        <kgp-upload-image-button id="smaill" type="small" [postTitle]="postTitleBind" (downloadURLOut)="geturlSmaill($event)" (click)="locktitle()"></kgp-upload-image-button>
+      </div>
+
+      <div class="imageBig">
+        <kgp-upload-image-button id="big" type="big" [postTitle]="postTitleBind" (downloadURLOut)="geturlBig($event)" (click)="locktitle()"></kgp-upload-image-button>
+      </div>
+
+    </div>
+
+    <div class="btnc">
+
+      <button type="submit" class="btn secondary">
+        <div class="btnicon">
+          <i class="fas fa-save fa-fw"></i>
+        </div>
+        <div>Submit</div>
+      </button>
+
+      <button type="button" class="btn primary" (click)="resetEmailForm()">
+        <div class="btnicon">
+          <i class="fas fa-times-circle fa-fw"></i>
+        </div>
+        <div>Cancel</div>
+      </button>
+
+    </div>
+
+  </form>
 
 </div>

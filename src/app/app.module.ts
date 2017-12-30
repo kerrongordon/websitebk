@@ -11,10 +11,9 @@ import { ServiceWorkerModule } from '@angular/service-worker'
 import { NotificationModule } from './components/notification/notification.module'
 import { AngularFireStorageModule } from 'angularfire2/storage'
 
-
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,8 @@ export interface Project {
     title: string,
     content: string,
     markdown: string,
-    url: string,
+    weburl: string,
+    giturl: string,
     image: Images
     timestamp: Timestamp
 }
