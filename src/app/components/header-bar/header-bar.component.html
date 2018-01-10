@@ -1,45 +1,39 @@
 <header class="headerBar">
 
-  <div class="icon" routerLink="/">
-    <kgp-icons icon="home" class="bar"></kgp-icons>
-  </div>
+  <i class="ion-ios-home icon" routerLink="/"></i>
 
   <div class="searchBarCon">
 
     <div class="searchBar" [ngClass]="{'isActive': toggleSearchClass}">
 
-      <kgp-icons icon="search" class="bar"></kgp-icons>
-      
+      <i class="ion-ios-search-strong icon"></i>
+
       <input class="search" id="search" type="search" placeholder="Search Projects" (keyup)="search($event.target.value)" (focus)="focusSearch()"
-          (blur)="blurSearch()">
+        (blur)="blurSearch()">
 
+      <div class="searchOutPut">
+
+        <div *ngIf="searchTitle?.length > 0" class="pad">
+          <h4 class="stitle">By Title</h4>
+          <div *ngFor="let title of searchTitle" class="searchItem" routerLink="/project/{{ title.id }}">
+            {{ title.title }}
+          </div>
+        </div>
+
+        <div *ngIf="searchContent?.length > 0" class="pad">
+          <h4 class="stitle">By Contnet</h4>
+          <div *ngFor="let content of searchContent" class="searchItem" routerLink="/project/{{ content.id }}">
+            {{ content.content | truncate: 70 }}
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <div class="searchOutPut">
-
-      <div *ngIf="searchTitle?.length > 0" class="padbuttom">
-        <h4 class="stitle">By Title</h4>
-        <div *ngFor="let title of searchTitle" class="searchItem hideOText" routerLink="/project/{{ title.id }}">
-          {{ title.title }}
-        </div>
-      </div>
-
-      <div *ngIf="searchContent?.length > 0" class="padbuttom">
-        <h4 class="stitle">By Contnet</h4>
-        <div *ngFor="let content of searchContent" class="searchItem hideOText" routerLink="/project/{{ content.id }}">
-          {{ content.content | truncate: 60 }}
-        </div>
-      </div>
-
-    </div>
   </div>
 
-  <div routerLink="/projects" class="icon">
-    <kgp-icons icon="projects" class="bar"></kgp-icons>
-  </div>
+  <i class="ion-ios-albums icon" routerLink="/projects"></i>
 
-  <div routerLink="/login" class="icon">
-    <kgp-icons icon="gear" class="bar"></kgp-icons>
-  </div>
+  <i class="ion-ios-person icon" routerLink="/login"></i>
 
 </header>

@@ -1,120 +1,111 @@
 @import '../../var.sass'
 
 \:host
-    display: block
-    position: fixed
-    top: 0
     left: 0
     right: 0
+    bottom: 0
+    display: grid
     width: 100%
     z-index: 9999
+    position: fixed
     background-color: rgba($primary, 0.95)
 
-.headerBar
-    max-width: 1200px
-    padding: 10px
-    margin: 0 auto
-    color: $light
-    display: grid
-    grid-template-columns: auto 1fr auto auto
-
-.search
-    width: 100%
-    border: none
-    background: transparent
-    outline: none
-    padding: 10px 0
-    color: inherit
-    box-shadow: 0 0 0 0 transparent
-
-    &::placeholder
-        color: #fdfdfd
-        transition: color .5s ease-in-out
-
-.searchBar
-    background: rgba(#ffffff, 0.2)
-    color: #fdfdfd
-    border-radius: 3px
-    display: grid
-    grid-template-columns: auto 1fr
-    transition: background .3s ease-in-out, box-shadow .4s ease-in-out
-
-    &.isActive
-        background: #ffffff
-        color: #8c8c8c
-        border-radius: 3px 3px 0 0
-        box-shadow: 0 0 25px rgba(40, 47, 60, 0.05), 0 20px 25px rgba(40, 47, 60, 0.05), 0 3px 4px rgba(40, 47, 60, 0.14)
-
-        .search
-            &::placeholder
-                color: #8c8c8c
-
 .searchBarCon
-    position: relative
+    display: none
 
-.searchOutPut
-    background: #ffffff
-    color: $fontPrimary
-    width: 100%
-    position: absolute
-    overflow-y: auto
-    max-height: 300px
-    border-radius: 0 0 3px 3px
+.headerBar
     display: grid
-    grid-template-columns: 1fr 1fr
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.21), 0 15px 12px rgba(0, 0, 0, 0)
+    grid-template-columns: repeat(3, 1fr)
+    justify-items: center
 
-
-.searchItem
-    margin: 0 15px
-    padding: 5px
-    cursor: pointer
-    transition: all .3s ease-in-out
-    box-shadow: 0px 1px 0px 0px rgba(#ccc, 0.2)
-
-    &:hover
-        background: $secondary 
-        color: #ffffff
-        border-radius: 3px
-        box-shadow: 0 2px 4px rgba($secondary, 0.3), 0 7px 14px rgba($secondary, 0.4)
-
-.stitle
-    text-align: center
-    font-weight: 400
-    margin: 5px 0
-
-    
 .icon
-    text-align: center
-    line-height: 2.4
+    font-size: 1.5em
+    color: $light
+    padding: 0.2em 0.5em
+    outline: none
     cursor: pointer
-    transform: scale(1)
-    transition: color .3s ease-in-out, transform .3s ease-in-out
+    transition: all 0.3s ease-in-out
 
     &:hover
-        transform: scale(1.2)
         color: $secondary
 
-    &:active
-        transform: scale(1)
-
-    &.seaicon
-        &:hover
-            transform: scale(1)
-            color: inherit
-
-
-@media screen and (max-width: 599px)
-
+@media screen and (min-width: 600px)
+    
     \:host
-        bottom: 0
-        top: auto
-        padding: 5px 0
+        top: 0
+        bottom: auto
+        grid-template-columns: 1fr 10fr 1fr
 
     .searchBarCon
-        display: none
+        display: grid
+        width: 100%
+
+    .search
+        width: 100%
+        background: transparent
+        border: none
+        outline: none
+        color: $fontPrimary
+
+        &::placeholder
+            color: #fdfdfd
 
     .headerBar
-        padding: 0
-        justify-items: center
-        grid-template-columns: 1fr 1fr 1fr
+        grid-template-columns: auto 1fr auto auto
+        grid-gap: 1em
+        grid-column: 2 / 3
+        padding: 0.5em 0
+
+    .searchBar
+        display: grid
+        position: relative
+        border-radius: 3px
+        background: rgba($light, 0.2)
+        grid-template-columns: auto 1fr
+        transition: all 0.3s ease-in-out
+
+        &.isActive
+            background: $light
+            border-radius: 3px 3px 0 0
+
+            .icon
+                color: $fontPrimary
+
+            .search
+                &::placeholder
+                    color: $fontPrimary
+
+        .icon
+            cursor: initial
+
+            &:hover
+                color: $fontPrimary
+
+    .searchOutPut
+        top: 38px
+        width: 100%
+        display: grid
+        overflow-y: auto
+        background: $light
+        overflow-x: hidden
+        position: absolute
+        max-height: 300px
+        grid-column: 1 / 3
+        grid-template-columns: auto auto
+        box-shadow: 0 25px 38px rgba(0, 0, 0, 0.21), 0 15px 12px rgba(0, 0, 0, 0)
+
+    .pad
+        padding: 1em
+
+    .searchItem
+        cursor: pointer
+        color: $fontPrimary
+        outline: none
+
+        &:hover
+            color: $secondary
+
+@media screen and (min-width: 600px) and (max-width: 959px)
+
+    \:host
+        grid-template-columns: 1fr 30fr 1fr
