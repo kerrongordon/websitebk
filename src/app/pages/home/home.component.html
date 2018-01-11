@@ -3,22 +3,11 @@
 
 <kgp-hero title="Kerron Gordon"></kgp-hero>
 
-<!-- <div class="kgpContainer landingline"> -->
+<kgp-avatar img="assets/avatar.svg" alt="Kerron Gordon" class="home"></kgp-avatar>
 
-    <kgp-avatar img="assets/avatar.svg" alt="Kerron Gordon" class="home"></kgp-avatar>
+<kgp-description [content]="(_ds.description | async)?.content"></kgp-description>
 
-    <kgp-description
-        [ngStyle.xs]="{'max-width': '400px', 'display': 'block', 'margin': '0 auto'}"
-        [content]="des">
-    </kgp-description>
-
-    <kgp-social-icon
-        Facebook="https://www.facebook.com/kerron.gordon"
-        Twitter="https://twitter.com/kerrongordon"
-        Google="https://plus.google.com/+kerrongordon"
-        Linkedin="https://www.linkedin.com/in/kerrongordon"
-        Github="https://github.com/kerrongordon">
-    </kgp-social-icon>
+<kgp-social-icon [links]="socialLink"></kgp-social-icon>
 
     <div
         fxLayout="row"
@@ -35,8 +24,6 @@
         </kgp-skill-item>
 
     </div>
-
-<!-- </div> -->
 
 <div class="kgpContainer landingline landingbg">
 

@@ -1,60 +1,69 @@
 @import ../../var.sass
 
 \:host
-    max-width: 200px
-    margin: 0 auto 35px
-
-.item
-    padding: 7px
-    margin: 0 10px
-    text-align: center
-    width: 40px
-    height: 40px
-    border-radius: 50%
-    cursor: pointer
-    position: relative
-    background: transparent
-    z-index: 2
-    transform: translateY(0) scale(1) translateZ(0)
-    transition: all .3s ease-in-out
-    box-shadow: 0 2px 4px rgba(33,37,41,.1), 0 7px 14px rgba(33,37,41,.1)
-
-    &:hover
-        background: $primary
-        transform: translateY(-3px) scale(1.2)
-        box-shadow: 0 30px 50px 0 rgba(1,1,1,.15)
-
-        .icon
-            color: $light
-
-        .title
-            opacity: 1
-            font-size: 0.7rem
-
-
-.title
-    position: absolute
-    overflow: hidden
-    line-height: 0.5
-    top: 50%
-    padding: 0 10px
-    z-index: -1
-    left: 50%
-    font-size: 0
-    background: #fff
-    text-align: center
-    transform: translate(-50%, -195%)
-    border-radius: 3px
-    opacity: 0
-    transition: all .3s ease-in-out
-    box-shadow: 0 2px 4px rgba(33, 37, 41, 0.06), 0 7px 14px rgba(33, 37, 41, 0.04)
-
-.name
-    position: absolute
-    opacity: 0
-    font-size: 1px
-    top: 0
+    display: grid
+    max-width: 400px
+    justify-items: center
+    margin: 0 auto 3em
+    grid-template-columns: repeat(6, 1fr)
 
 .icon
+    display: grid
+    position: relative
+    justify-items: center
+    text-decoration: none
+
+    &:hover,
+    &:focus
+        .name
+            font-size: 12px
+            border-radius: 5%
+            transform: translate(-50%, -250%)
+
+.name
+    top: 50%
+    left: 50%
+    color: $light
+    display: grid
+    font-size: 0px
+    padding: 0 .5em
+    position: absolute
+    border-radius: 50%
+    background: $primary
+    text-transform: capitalize
+    transition: all .3s ease-in-out
+    transform: translate(-50%, -50%)
+    box-shadow: 0 2px 4px rgba(33, 37, 41, 0.06), 0 7px 14px rgba(33, 37, 41, 0.04)
+
+    &:after
+        width: 0
+        left: 50%
+        height: 0
+        z-index: 3
+        content: ''
+        bottom: 50%
+        position: absolute
+        border-top: 10px solid $primary
+        transform: translate(-50%, 200%)
+        border-left: 10px solid transparent
+        border-right: 10px solid transparent
+
+i
+    z-index: 2
+    width: 2em
+    height: 2em
+    display: grid
+    font-size: 1.3em
+    text-align: center
+    align-items: center
+    border-radius: 50%
+    background: $light
     color: $fontPrimary
     transition: all .3s ease-in-out
+    transform: translateY(0) scale(1)
+    box-shadow: 0 2px 4px rgba(33,37,41,.1), 0 7px 14px rgba(33,37,41,.1)
+
+    &:hover,
+    &:focus
+        transform: translateY(-3px) scale(1.2)
+        box-shadow: 0 30px 50px 0 rgba(1,1,1,.15)

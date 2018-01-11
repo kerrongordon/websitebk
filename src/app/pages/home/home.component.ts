@@ -4,6 +4,7 @@ import { SkillsService, Skills } from '../../services/skills/skills.service'
 import { Subscription } from 'rxjs/Subscription'
 import { ProjectService } from '../../services/project/project.service'
 import { Project } from '../../interface/Project'
+import { SocialLink } from './../../interface/social'
 
 @Component({
   selector: 'kgp-home',
@@ -13,22 +14,28 @@ import { Project } from '../../interface/Project'
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  des: Description
   skillsInit: Skills[]
   projectsInit: Project[]
 
-  private desSub: Subscription
   private skillSub: Subscription
   private projectSub: Subscription
 
+  socialLink: SocialLink[] = [
+    { link: 'https://www.facebook.com/kerron.gordon', title: 'facebook' },
+    { link: 'https://twitter.com/kerrongordon', title: 'twitter' },
+    { link: 'https://plus.google.com/+kerrongordon', title: 'googleplus' },
+    { link: 'https://www.linkedin.com/in/kerrongordon', title: 'linkedin' },
+    { link: 'https://github.com/kerrongordon', title: 'github' },
+    { link: 'https://www.instagram.com/gordonkerron', title: 'instagram' }
+  ]
+
   constructor(
-    private _ds: DescriptionService,
+    public _ds: DescriptionService,
     private _ss: SkillsService,
     private _ps: ProjectService
   ) { }
 
   ngOnInit() {
-    this.loadDes()
     this.loadSkills()
     this.loadProjects()
   }
@@ -43,13 +50,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe(data => this.skillsInit = data)
   }
 
-  loadDes() {
-    return this.desSub = this._ds.loadDes()
-      .subscribe(data => this.des = data)
-  }
-
   ngOnDestroy() {
-    this.desSub.unsubscribe()
     this.skillSub.unsubscribe()
     this.projectSub.unsubscribe()
   }

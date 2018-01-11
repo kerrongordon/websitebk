@@ -1,49 +1,7 @@
-<div class="item">
-  <div class="title">
-    <p>Facebook</p>
-  </div>
-  <a target="_blank" class="icon" rel="noopener" href="{{ Facebook }}">
-    <i class="fab fa-facebook-f fa-fw fa-lg"></i>
-    <span class="name">Facebook</span>
+<div class="item" *ngFor="let link of links">
+  <a target="_blank" class="icon" rel="noopener" [href]="link.link">
+    <span class="name">{{ link.title }}</span>
+    <i class="ion-social-{{ link.title }}"></i>
   </a>
 </div>
 
-<div class="item">
-  <div class="title">
-    <p>Twitter</p>
-  </div>
-  <a target="_blank" class="icon" rel="noopener" href="{{ Twitter }}">
-    <i class="fab fa-twitter fa-fw fa-lg"></i>
-    <span class="name">Twitter</span>
-  </a>
-</div>
-
-<div class="item">
-  <div class="title">
-    <p>GooglePlus</p>
-  </div>
-  <a target="_blank" class="icon" rel="noopener" href="{{ Google }}">
-    <i class="fab fa-google-plus-g fa-fw fa-lg"></i>
-    <span class="name">Google Plus</span>
-  </a>
-</div>
-
-<div class="item">
-  <div class="title">
-    <p>Linkedin</p>
-  </div>
-  <a target="_blank" class="icon" rel="noopener" href="{{ Linkedin }}">
-    <i class="fab fa-linkedin-in fa-fw fa-lg"></i>
-    <span class="name">Linkedin</span>
-  </a>
-</div>
-
-<div class="item">
-  <div class="title">
-    <p>Github</p>
-  </div>
-  <a target="_blank" class="icon" rel="noopener" href="{{ Github }}">
-    <i class="fab fa-github-alt fa-fw fa-lg"></i>
-    <span class="name">Github</span>
-  </a>
-</div>

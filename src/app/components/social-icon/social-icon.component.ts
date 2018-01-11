@@ -1,4 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core'
+import { SocialLink } from '@interface/social'
 
 @Component({
   selector: 'kgp-social-icon',
@@ -7,9 +8,5 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SocialIconComponent {
-  @Input() Facebook: string
-  @Input() Twitter: string
-  @Input() Google: string
-  @Input() Linkedin: string
-  @Input() Github: string
+  @Input() links: SocialLink[]
 }
