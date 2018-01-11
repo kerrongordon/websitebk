@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
-import { DescriptionService, Description } from '../../services/description/description.service'
-import { SkillsService, Skills } from '../../services/skills/skills.service'
+import { DescriptionService } from '@services/description/description.service'
+import { SkillsService } from '@services/skills/skills.service'
 import { Subscription } from 'rxjs/Subscription'
-import { ProjectService } from '../../services/project/project.service'
-import { Project } from '../../interface/Project'
-import { SocialLink } from './../../interface/social'
+import { ProjectService } from '@services/project/project.service'
+import { Project } from '@interface/Project'
+import { SocialLink } from '@interface/social'
 
 @Component({
   selector: 'kgp-home',
@@ -13,11 +13,7 @@ import { SocialLink } from './../../interface/social'
   providers: [DescriptionService, SkillsService, ProjectService]
 })
 export class HomeComponent implements OnInit, OnDestroy {
-
-  skillsInit: Skills[]
   projectsInit: Project[]
-
-  private skillSub: Subscription
   private projectSub: Subscription
 
   socialLink: SocialLink[] = [
@@ -31,12 +27,11 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(
     public _ds: DescriptionService,
-    private _ss: SkillsService,
+    public _ss: SkillsService,
     private _ps: ProjectService
   ) { }
 
   ngOnInit() {
-    this.loadSkills()
     this.loadProjects()
   }
 
@@ -45,13 +40,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe(data => this.projectsInit = data.reverse().slice(0, 4))
   }
 
-  loadSkills() {
-    return this.skillSub = this._ss.loadListOfSkills()
-      .subscribe(data => this.skillsInit = data)
-  }
-
   ngOnDestroy() {
-    this.skillSub.unsubscribe()
     this.projectSub.unsubscribe()
   }
 

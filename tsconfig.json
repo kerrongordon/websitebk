@@ -21,7 +21,7 @@
       "@services/*": ["app/services/*"],
       "@interface/*": ["app/interface/*"],
       "@directives/*": ["app/directives/*"],
-      "@components/*": ["app/components/*"],
+      "@components/*": ["app/components/*"]
     }
   }
 }

@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
-import { ProjectService } from '../../services/project/project.service'
-import { SkillsService } from '../../services/skills/skills.service'
+import { ProjectService } from '@services/project/project.service'
+import { SkillsService } from '@services/skills/skills.service'
 import { Subscription } from 'rxjs/Subscription'
-import { MessagesService } from '../../services/messages/messages.service'
-import { Project } from '../../interface/Project'
+import { MessagesService } from '@services/messages/messages.service'
+import { Project } from '@interface/Project'
 
 @Component({
   selector: 'kgp-dashboard',
@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.loadSkills()
+    // this.loadSkills()
     this.loadProjects()
     this.loadMessages()
   }
@@ -43,12 +43,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
       })
   }
 
-  private loadSkills() {
-    return this.skillSub = this._ss.loadListOfSkills()
-      .subscribe(data => {
-        this.skillsNum = data.length
-      })
-  }
+  // private loadSkills() {
+  //   return this.skillSub = this._ss.loadListOfSkills()
+  //     .subscribe(data => {
+  //       this.skillsNum = data.length
+  //     })
+  // }
 
   private loadMessages() {
     return this.messageSub = this._ms.loadMessage()
@@ -58,7 +58,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.skillSub.unsubscribe()
+    // this.skillSub.unsubscribe()
     this.projectSub.unsubscribe()
     this.messageSub.unsubscribe()
   }

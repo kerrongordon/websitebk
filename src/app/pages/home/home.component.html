@@ -9,25 +9,15 @@
 
 <kgp-social-icon [links]="socialLink"></kgp-social-icon>
 
-    <div
-        fxLayout="row"
-        fxLayout.xs="column"
-        fxLayoutWrap
-        [ngStyle.xs]="{'max-width': '350px'}"
-        class="skillwrap">
+<div class="skill-wrap">
+  <kgp-skill-item *ngFor="let skill of (_ss.skills | async)" [content]="skill.title" [level]="skill.level"></kgp-skill-item>
+</div>
 
-        <kgp-skill-item
-            *ngFor="let skill of skillsInit "
-            [content]="skill.title"
-            [level]="skill.level"
-            fxFlex="45">
-        </kgp-skill-item>
-
-    </div>
+<div class="landingline"></div>
 
 <div class="kgpContainer landingline landingbg">
 
-    <h2 
+    <h2
         class="line cinzel">Projects
     </h2>
 
@@ -40,9 +30,9 @@
         [ngStyle.sm]="{'max-width': '550px', 'margin': '0 auto'}"
         [ngStyle.gt-sm]="{'max-width': '1100px', 'margin': '0 auto'}">
 
-    <kgp-card 
-        [ngStyle.sm]="{'max-width': '46%'}" 
-        [ngStyle.gt-sm]="{'max-width': '22%'}" 
+    <kgp-card
+        [ngStyle.sm]="{'max-width': '46%'}"
+        [ngStyle.gt-sm]="{'max-width': '22%'}"
         *ngFor="let project of projectsInit"
         routerLink="/project/{{ project.id }}">
 
@@ -52,11 +42,11 @@
             [alt]="project.title">
         </kgp-card-image>
 
-        <kgp-card-content 
-            [ctitle]="project.title" 
-            [content]="project.content" 
-            [month]="project.timestamp.month" 
-            [day]="project.timestamp.date" 
+        <kgp-card-content
+            [ctitle]="project.title"
+            [content]="project.content"
+            [month]="project.timestamp.month"
+            [day]="project.timestamp.date"
             [year]="project.timestamp.year">
         </kgp-card-content>
 
@@ -70,7 +60,7 @@
 
 <div class="kgpContainer contact">
 
-    <h2 
+    <h2
         class="line cinzel">Get in touch
     </h2>
 
