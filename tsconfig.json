@@ -17,7 +17,11 @@
     ],
     "baseUrl": "src",
     "paths": {
-      "@components/*": ["app/components/*"]
+      "@pipe/*": ["app/pipe/*"],
+      "@services/*": ["app/services/*"],
+      "@interface/*": ["app/interface/*"],
+      "@directives/*": ["app/directives/*"],
+      "@components/*": ["app/components/*"],
     }
   }
 }
