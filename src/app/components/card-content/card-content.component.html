@@ -1,8 +1,8 @@
-<div *ngIf="ctitle">
-    <h4 class="hideOText">{{ ctitle | truncate: 20 }}</h4>
-    <p>{{ content | truncate: 50 }}</p>
+<div *ngIf="data">
+    <h4 class="hideOText">{{ data.title | truncate: 20 }}</h4>
+    <p>{{ data.content | truncate: 50 }}</p>
     <span>
         <i class="far fa-clock fa-fw fa-lg"></i>
-        Posted On {{ monthS }} {{ day }}, {{ year }}
+        Posted On {{ monthS }} {{ data.timestamp.date }}, {{ data.timestamp.year }}
     </span>
 </div>

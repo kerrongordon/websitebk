@@ -1,4 +1,4 @@
-<div *ngIf="base64">
-    <img [@fadeInOut]="fadeInState" class="base" src="{{ base64 }}" alt="{{ alt }}" [ngStyle.xs]="{'height': '200px'}">
-    <img [@fadeInOut]="fadeOutState" src="{{ imge }}" (load)="isImgeLoad($event)" alt="{{ alt }}" [ngStyle.xs]="{'height': '200px'}">
+<div class="imageCon" *ngIf="data">
+    <img [@fadeInOut]="fadeInState" class="base" [src]="data.base64" [alt]="alt">
+    <img [@fadeInOut]="fadeOutState" [src]="data.url" (load)="imgeLoad()" [alt]="alt">
 </div>

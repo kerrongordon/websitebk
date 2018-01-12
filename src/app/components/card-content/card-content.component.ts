@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core'
+import { Project } from '@interface/Project'
 
 @Component({
   selector: 'kgp-card-content',
@@ -7,13 +8,7 @@ import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardContentComponent implements OnInit {
-
-  @Input() ctitle: string
-  @Input() content: string
-  @Input() month: string
-  @Input() day: number
-  @Input() year: number
-
+  @Input() data: Project
   monthS: string
 
   ngOnInit() {
@@ -21,8 +16,8 @@ export class CardContentComponent implements OnInit {
   }
 
   private constr() {
-    if (!this.month) { return }
-    const mk = this.month.slice(0, 3)
+    if (!this.data.timestamp.month) { return }
+    const mk = this.data.timestamp.month.slice(0, 3)
     return this.monthS = mk
   }
 

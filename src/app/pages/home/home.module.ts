@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
-import { FlexLayoutModule } from '@angular/flex-layout'
 import { HomeComponent } from './home.component'
 
-import { CenterModule } from '../../directives/center/center.module'
+import { CenterModule } from '@directives/center/center.module'
 
 import { HeroModule } from '@components/hero/hero.module'
 import { CardModule } from '@components/card/card.module'
@@ -22,7 +21,6 @@ import { ContactFormModule } from '@components/contact-form/contact-form.module'
 @NgModule({
   imports: [
     CommonModule,
-    FlexLayoutModule,
     CenterModule,
     HeroModule,
     AvatarModule,

@@ -1,9 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'
+import { Component } from '@angular/core'
 import { DescriptionService } from '@services/description/description.service'
 import { SkillsService } from '@services/skills/skills.service'
-import { Subscription } from 'rxjs/Subscription'
 import { ProjectService } from '@services/project/project.service'
-import { Project } from '@interface/Project'
 import { SocialLink } from '@interface/social'
 
 @Component({
@@ -12,10 +10,7 @@ import { SocialLink } from '@interface/social'
   styleUrls: ['./home.component.sass'],
   providers: [DescriptionService, SkillsService, ProjectService]
 })
-export class HomeComponent implements OnInit, OnDestroy {
-  projectsInit: Project[]
-  private projectSub: Subscription
-
+export class HomeComponent {
   socialLink: SocialLink[] = [
     { link: 'https://www.facebook.com/kerron.gordon', title: 'facebook' },
     { link: 'https://twitter.com/kerrongordon', title: 'twitter' },
@@ -28,20 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     public _ds: DescriptionService,
     public _ss: SkillsService,
-    private _ps: ProjectService
+    public _ps: ProjectService
   ) { }
-
-  ngOnInit() {
-    this.loadProjects()
-  }
-
-  loadProjects() {
-    return this.projectSub = this._ps.loadListOfProjects()
-      .subscribe(data => this.projectsInit = data.reverse().slice(0, 4))
-  }
-
-  ngOnDestroy() {
-    this.projectSub.unsubscribe()
-  }
 
 }

@@ -1,19 +1,26 @@
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
-import { Project } from '../../interface/Project'
+import { Project } from '@interface/Project'
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, } from 'angularfire2/firestore'
 
 @Injectable()
 export class ProjectService {
 
+  private projectCollectionHome: AngularFirestoreCollection<Project>
   private projectCollection: AngularFirestoreCollection<Project>
-  private projects: Observable<Project[]>
+  projects: Observable<Project[]>
   private doc: AngularFirestoreDocument<Project>
   private projectOb: Observable<Project>
 
   constructor(
     private _afs: AngularFirestore
-  ) { }
+  ) {
+    this.projectCollectionHome = this._afs
+      .collection<Project>('projects', ref => ref
+        .orderBy('timestamp.timestamp', 'desc')
+        .limit(4))
+    this.projects = this.projectCollectionHome.valueChanges()
+  }
 
   public loadListOfProjects() {
     this.projectCollection = this._afs

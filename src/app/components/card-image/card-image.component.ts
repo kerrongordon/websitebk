@@ -1,5 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core'
 import { fadeInOutImg } from '../../exports/animations'
+import { Imagen } from '@interface/Project'
 
 @Component({
   selector: 'kgp-card-image',
@@ -9,18 +10,15 @@ import { fadeInOutImg } from '../../exports/animations'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardImageComponent {
-
-  @Input() imge: string
-  @Input() base64: string
   @Input() alt: string
+  @Input() data: Imagen
 
   fadeInState = 'in'
   fadeOutState = 'out'
 
-  isImgeLoad(e) {
+  imgeLoad() {
     this.fadeInState = 'out'
     this.fadeOutState = 'in'
-    return
   }
 
 }

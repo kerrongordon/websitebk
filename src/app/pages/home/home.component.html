@@ -15,45 +15,21 @@
 
 <div class="landingline"></div>
 
-<div class="kgpContainer landingline landingbg">
+<div class="landingline landingbg">
 
-    <h2
-        class="line cinzel">Projects
-    </h2>
+    <h2 class="line cinzel">Projects</h2>
 
-    <div
-        fxLayout="row"
-        fxLayout.xs="column"
-        fxLayoutAlign="space-between start"
-        fxLayoutWrap
-        [ngStyle.xs]="{'max-width': '350px', 'margin': '0 auto'}"
-        [ngStyle.sm]="{'max-width': '550px', 'margin': '0 auto'}"
-        [ngStyle.gt-sm]="{'max-width': '1100px', 'margin': '0 auto'}">
+    <div class="skill-grid">
 
-    <kgp-card
-        [ngStyle.sm]="{'max-width': '46%'}"
-        [ngStyle.gt-sm]="{'max-width': '22%'}"
-        *ngFor="let project of projectsInit"
-        routerLink="/project/{{ project.id }}">
+      <kgp-card *ngFor="let project of (_ps.projects | async)" routerLink="/project/{{ project.id }}">
 
-        <kgp-card-image
-            [imge]="project.image.small.url"
-            [base64]="project.image.small.base64"
-            [alt]="project.title">
-        </kgp-card-image>
+          <kgp-card-image [data]="project.image.small" [alt]="project.title"></kgp-card-image>
 
-        <kgp-card-content
-            [ctitle]="project.title"
-            [content]="project.content"
-            [month]="project.timestamp.month"
-            [day]="project.timestamp.date"
-            [year]="project.timestamp.year">
-        </kgp-card-content>
+          <kgp-card-content [data]="project"></kgp-card-content>
 
-    </kgp-card>
+      </kgp-card>
 
     </div>
-
 
 </div>
 
