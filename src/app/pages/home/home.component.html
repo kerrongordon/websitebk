@@ -10,7 +10,7 @@
 <kgp-social-icon [links]="socialLink"></kgp-social-icon>
 
 <div class="skill-wrap">
-  <kgp-skill-item *ngFor="let skill of (_ss.skills | async)" [content]="skill.title" [level]="skill.level"></kgp-skill-item>
+    <kgp-skill-item *ngFor="let skill of (_ss.skills | async)" [content]="skill.title" [level]="skill.level"></kgp-skill-item>
 </div>
 
 <div class="landingline"></div>
@@ -19,26 +19,25 @@
 
     <h2 class="line cinzel">Projects</h2>
 
-    <div class="skill-grid">
+    <div class="project-grid">
 
-      <kgp-card *ngFor="let project of (_ps.projects | async)" routerLink="/project/{{ project.id }}">
+        <kgp-card *ngFor="let project of (_ps.projects | async)" routerLink="/project/{{ project.id }}">
+            <kgp-card-image [data]="project.image.small" [alt]="project.title"></kgp-card-image>
+            <kgp-card-content [data]="project"></kgp-card-content>
+        </kgp-card>
 
-          <kgp-card-image [data]="project.image.small" [alt]="project.title"></kgp-card-image>
+    </div>
 
-          <kgp-card-content [data]="project"></kgp-card-content>
-
-      </kgp-card>
-
+    <div class="center-btn">
+        <kgp-button icon="ion-ios-albums" secondary routerLink="/projects">View Projects</kgp-button>
     </div>
 
 </div>
 
 
-<div class="kgpContainer contact">
+<div class="contact">
 
-    <h2
-        class="line cinzel">Get in touch
-    </h2>
+    <h2 class="line cinzel">Get in touch</h2>
 
     <kgp-contact-form></kgp-contact-form>
 

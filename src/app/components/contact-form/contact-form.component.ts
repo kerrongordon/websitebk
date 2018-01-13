@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { NotificationService } from '../../services/notification/notification.service'
-import { TimestampService } from '../../services/timestamp/timestamp.service'
-import { MarkdownService } from '../../services/markdown/markdown.service'
-import { SendMessageService } from '../../services/send-message/send-message.service'
-import { Email } from '../../interface/email'
+import { NotificationService } from '@services/notification/notification.service'
+import { TimestampService } from '@services/timestamp/timestamp.service'
+import { MarkdownService } from '@services/markdown/markdown.service'
+import { SendMessageService } from '@services/send-message/send-message.service'
+import { Email } from '@interface/email'
 
 @Component({
   selector: 'kgp-contact-form',

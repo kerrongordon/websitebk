@@ -1,0 +1,56 @@
+@import "../../var"
+
+button
+    background: $fontPrimary
+    border: none
+    border-radius: .3em
+    color: $light
+    padding: .4em 1em
+    cursor: pointer
+    transform: translateY(0px)
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16)
+    transition: box-shadow .3s ease-in-out, transform .3s ease-in-out
+
+\:host
+    -webkit-appearance: none
+
+    &[primary] > button
+        background: $primary
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16)
+
+        &:hover
+            transform: translateY(-3px)
+            box-shadow: 0 15px 35px rgba($primary,.3), 0 5px 15px rgba($primary,.4)
+
+        &:active
+            transform: translateY(0px)
+            box-shadow: 0 2px 4px rgba($primary, 0.3), 0 7px 14px rgba($primary, 0.4)
+
+    &[secondary] > button
+        background: $secondary
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16)
+
+        &:hover
+            transform: translateY(-3px)
+            box-shadow: 0 15px 35px rgba($secondary,.3), 0 5px 15px rgba($secondary,.4)
+
+        &:active
+            transform: translateY(0px)
+            box-shadow: 0 2px 4px rgba($secondary, 0.3), 0 7px 14px rgba($secondary, 0.4)
+
+    &[danger] > button
+        background: $danger
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16)
+
+        &:hover
+            transform: translateY(-3px)
+            box-shadow: 0 15px 35px rgba($danger,.3), 0 5px 15px rgba($danger,.4)
+
+        &:active
+            transform: translateY(0px)
+            box-shadow: 0 2px 4px rgba($danger, 0.3), 0 7px 14px rgba($danger, 0.4)
+
+    &[disable] > button
+        background: $loadingColor
+        color: $loadingColor
+        box-shadow: none

@@ -8,7 +8,7 @@
     margin: 0 auto 100px
     grid-template-columns: 1fr 1fr
 
-.skill-grid
+.project-grid
     display: grid
     grid-template-columns: minmax(40%, 1fr) minmax(40%, 1fr)
     grid-gap: 1em
@@ -26,7 +26,7 @@
         content: ''
         position: relative
         display: block
-        padding-bottom: 130px
+        padding-bottom: 5em
 
 .contact
 
@@ -35,3 +35,22 @@
         position: relative
         display: block
         padding-bottom: 60px
+
+.center-btn
+    display: grid
+    justify-content: center
+    margin: 3em 0 0
+
+
+@media screen and (min-width: 600px)
+
+  .project-grid
+      max-width: 600px
+      margin: 0 auto
+
+@media screen and (min-width: 980px)
+
+    .project-grid
+        grid-template-columns: repeat(4, 1fr)
+        max-width: 1000px
+

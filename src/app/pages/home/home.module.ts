@@ -16,6 +16,7 @@ import { DescriptionModule } from '@components/description/description.module'
 import { CardImageModule } from '@components/card-image/card-image.module'
 import { CardContentModule } from '@components/card-content/card-content.module'
 import { ContactFormModule } from '@components/contact-form/contact-form.module'
+import { ButtonModule } from '@components/button/button.module'
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { ContactFormModule } from '@components/contact-form/contact-form.module'
     ContactFormModule,
     FooterModule,
     HeaderBarModule,
+    ButtonModule,
     RouterModule.forChild([
       { path: '', component: HomeComponent }
     ])

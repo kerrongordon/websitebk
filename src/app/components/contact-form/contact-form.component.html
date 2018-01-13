@@ -1,119 +1,62 @@
-<form
-    fxLayout="column"
-    fxLayoutAlign="space-between center"
-    fxLayoutWrap
-    [formGroup]="emailForm"
-    novalidate
-    (ngSubmit)="onSubmit()">
+<form [formGroup]="emailForm" novalidate (ngSubmit)="onSubmit()">
 
-  <div 
-    fxLayout="row" 
-    fxLayoutAlign="space-between center" 
-    class="formitem" [ngClass]="inputClass1">
-
-    <div class="icon">
-      <i class="fas fa-user-circle fa-fw fa-lg"></i>
-    </div>
-
-    <div fxFlex="95">
-      <input 
-        type="text"  
-        class="item"
-        id="userName"
-        placeholder="Your Name" 
-        formControlName="userName"  
-        (focus)="inputClass1 = 'isfocus'" (blur)="inputClass1 = ''">
-        <label for="userName">Your Name</label>
-    </div>
-
+  <div class="formitem" [ngClass]="inputClass1">
+      <div class="icon">
+          <i class="ion-ios-person"></i>
+      </div>
+      <div>
+          <input type="text" class="item" id="userName" placeholder="Your Name" formControlName="userName"
+            (focus)="inputClass1 = 'isfocus'" (blur)="inputClass1 = ''">
+          <label for="userName">Your Name</label>
+      </div>
   </div>
 
+  <div class="formitem" [ngClass]="inputClass4">
 
-  <div 
-    fxLayout="row" 
-    fxLayoutAlign="space-between center" 
-    class="formitem" [ngClass]="inputClass4">
-  
     <div class="icon">
-      <i class="fas fa-industry fa-fw fa-lg"></i>
+      <i class="ion-ios-compose"></i>
     </div>
-  
-    <div fxFlex="95">
-      <input 
-        type="text" 
-        class="item"
-        id="userSubject"
-        placeholder="Subject" 
-        formControlName="userSubject" 
+
+    <div>
+      <input type="text" class="item" id="userSubject" placeholder="Subject" formControlName="userSubject"
         (focus)="inputClass4 = 'isfocus'" (blur)="inputClass4 = ''">
         <label for="userSubject">Subject</label>
     </div>
-  
+
   </div>
 
 
-  <div 
-    fxLayout="row" 
-    fxLayoutAlign="space-between center" 
-    class="formitem" [ngClass]="inputClass2">
-  
+  <div class="formitem" [ngClass]="inputClass2">
+
     <div class="icon">
-      <i class="fas fa-envelope fa-fw fa-lg"></i>
+      <i class="ion-ios-email"></i>
     </div>
-  
-    <div fxFlex="95">
-      <input 
-        class="item" 
-        type="email"
-        id="userEmail"
-        placeholder="Your Email" 
-        formControlName="userEmail" 
+
+    <div>
+      <input class="item" type="email" id="userEmail" placeholder="Your Email" formControlName="userEmail"
         (focus)="inputClass2 = 'isfocus'" (blur)="inputClass2 = ''">
         <label for="userEmail">Your Email</label>
     </div>
-  
+
   </div>
 
 
-  <div 
-    fxLayout="row" 
-    fxLayoutAlign="space-between center" 
-    class="formitem" [ngClass]="inputClass3">
-  
+  <div class="formitem" [ngClass]="inputClass3">
+
     <div class="icon">
-      <i class="fas fa-comments fa-fw fa-lg"></i>
+      <i class="ion-ios-chatboxes"></i>
     </div>
-  
-    <div fxFlex="95">
-      <textarea 
-        class="item"
-        id="userMessage"
-        placeholder="Your Massage" 
-        formControlName="userMessage" 
-        (keyup)="textToMarkDown($event.target.value)" 
-        (focus)="inputClass3 = 'isfocus'" (blur)="inputClass3 = ''"></textarea>
+
+    <div>
+      <textarea class="item" id="userMessage" placeholder="Your Massage" formControlName="userMessage"
+        (keyup)="textToMarkDown($event.target.value)" (focus)="inputClass3 = 'isfocus'" (blur)="inputClass3 = ''"></textarea>
         <label for="userMessage">Your Massage</label>
     </div>
-  
+
   </div>
 
-
-  <div>
-   
-    <button 
-      class="btn secondary" 
-      type="submit" [disabled]="!emailForm.valid">
-
-      <div class="btnicon">
-        <i class="fab fa-cloudsmith fa-fw fa-lg"></i>
-      </div>
-
-      <div class="btntext">
-         Send Message
-      </div>
-      
-    </button>
-
+  <div class="center-btn">
+      <kgp-button secondary icon="ion-ios-paperplane" type="submit" [disabled]="!emailForm.valid">Send Message</kgp-button>
   </div>
 
 </form>

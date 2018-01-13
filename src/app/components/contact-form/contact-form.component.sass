@@ -13,14 +13,18 @@
 
             &::placeholder
                 color: $loadingColor
-        
-        .icon
-            color: $loadingColor
+form
+    padding: 0 1em
+
+.center-btn
+    display: grid
+    justify-content: center
+    margin-top: 2em
 
 .item
-    width: 97%
-    font-size: 14px
-    padding: 13px 0 13px 10px
+    width: 100%
+    font-size: .8em
+    padding: .8em
     border: none
     color: inherit
     vertical-align: top
@@ -30,14 +34,17 @@
     width: 100%
     margin: 10px 0
     background: $light
+    display: grid
+    border-radius: 2px
+    overflow: hidden
+    grid-template-columns: auto 1fr
     transition: transform .3s ease-in-out, box-shadow .3s ease-in-out
     transform: translateY(0px)
     box-shadow: 0 0 25px rgba(40,47,60,.05), 0 20px 25px rgba(40,47,60,.05), 0 3px 4px rgba(40,47,60,.05), 0px 0px 1px 0px rgba(0,0,0,.2)
 
 .icon
-    transition: color .3s ease-in-out
-    margin-left: 9px
-    color: $fontPrimary
+    font-size: 1.5em
+    padding: .15em 0 .15em 0.4em
 
 textarea
     resize: none
@@ -47,11 +54,5 @@ textarea
     transform: translateY(-5px)
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.21), 0 15px 12px transparent, 0px 0px 1px 0px rgba(0,0,0,.2)
 
-.btn
-    margin-top: 20px
-    
-
 label
-    position: absolute
-    left: 0
-    opacity: 0
+    display: none
