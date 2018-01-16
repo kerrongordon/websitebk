@@ -54,3 +54,12 @@
         grid-template-columns: repeat(4, 1fr)
         max-width: 1000px
 
+@media screen and (min-width: 600px) and (max-width: 979px)
+
+    kgp-card:nth-child(4)
+        display: none
+
+    .project-grid
+        max-width: 800px
+        grid-template-columns: minmax(30%, 1fr) minmax(30%, 1fr) minmax(30%, 1fr)
+

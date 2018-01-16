@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { ProjectService } from '../../services/project/project.service'
-import { TimestampService } from '../../services/timestamp/timestamp.service'
-import { MarkdownService } from '../../services/markdown/markdown.service'
-import { Project, Imagen } from '../../interface/Project'
+import { ProjectService } from '@services/project/project.service'
+import { TimestampService } from '@services/timestamp/timestamp.service'
+import { MarkdownService } from '@services/markdown/markdown.service'
+import { Project, Imagen } from '@interface/Project'
 
 @Component({
   selector: 'kgp-add-project',

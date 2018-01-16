@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
-import { MessagesService } from '../../services/messages/messages.service'
+import { MessagesService } from '@services/messages/messages.service'
 import { Observable } from 'rxjs/Observable'
 import { Subscription } from 'rxjs/Subscription'
-import { Email } from '../../interface/email'
+import { Email } from '@interface/email'
 
 @Component({
   selector: 'kgp-email',

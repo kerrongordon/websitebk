@@ -26,7 +26,8 @@
     cursor: pointer
     transition: all 0.3s ease-in-out
 
-    &:hover
+    &:hover,
+    &:focus
         color: $secondary
 
 @media screen and (min-width: 600px)
@@ -39,6 +40,10 @@
     .searchBarCon
         display: grid
         width: 100%
+
+    .icon
+        font-size: 1.2em
+        padding: 0.1em 0.5em
 
     .search
         width: 100%
@@ -79,10 +84,10 @@
             cursor: initial
 
             &:hover
-                color: $fontPrimary
+                color: $light
 
     .searchOutPut
-        top: 38px
+        top: 30px
         width: 100%
         display: grid
         overflow-y: auto

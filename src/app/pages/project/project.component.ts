@@ -1,9 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
-import { ProjectService } from '../../services/project/project.service'
-import { ActivatedRoute, Router } from '@angular/router'
+import { ProjectService } from '@services/project/project.service'
+import { ActivatedRoute } from '@angular/router'
 import { Subscription } from 'rxjs/Subscription'
-import { fadeInOutImg } from '../../exports/animations'
-import { Project } from '../../interface/Project'
+import { fadeInOutImg } from '@exports/animations'
+import { Project } from '@interface/Project'
+import { Observable } from 'rxjs/Observable'
 
 @Component({
   selector: 'kgp-project',
@@ -15,49 +16,38 @@ import { Project } from '../../interface/Project'
 export class ProjectComponent implements OnInit, OnDestroy {
 
   private reload: Subscription
-  private pageSub: Subscription
   private ids: string
-  public project: Project
+  project: Observable<Project>
 
-  public fadeInState: string
-  public fadeOutState: string
+  fadeInState = 'in'
+  fadeOutState = 'out'
 
   constructor(
     private _avr: ActivatedRoute,
-    private _ps: ProjectService,
-    private _rt: Router
-  ) {
-    this.fadeInState = 'in'
-    this.fadeOutState = 'out'
-  }
+    public _ps: ProjectService
+  ) {  }
 
   ngOnInit() {
-    this.getPageId()
     this.pageReload()
   }
 
   pageReload() {
-    return this.reload = this._avr.params.subscribe(data => {
-      return Promise.all([
-        this.pageSub.unsubscribe()
-      ]).then(() => this.getPageId())
-      .catch((error) => console.log(error))
-    })
+    return this.reload = this._avr.params.subscribe(() => this.getPageId())
   }
 
   getPageId() {
+    this.fadeInState = 'in'
+    this.fadeOutState = 'out'
     this.ids = this._avr.snapshot.params['id']
-    return this.pageSub = this._ps.getProjectById(this.ids).subscribe(data => this.project = data)
+    return this.project = this._ps.getProjectById(this.ids)
   }
 
-  isImgeLoad(e) {
+  isImgeLoad() {
     this.fadeInState = 'out'
     this.fadeOutState = 'in'
-    return
   }
 
   ngOnDestroy() {
-    this.pageSub.unsubscribe()
     this.reload.unsubscribe()
   }
 

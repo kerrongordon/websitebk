@@ -5,37 +5,39 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument,
 
 @Injectable()
 export class ProjectService {
+  projectCollection: Observable<Project[]>
+  projectCollectionHome: Observable<Project[]>
 
-  private projectCollectionHome: AngularFirestoreCollection<Project>
-  private projectCollection: AngularFirestoreCollection<Project>
-  projects: Observable<Project[]>
   private doc: AngularFirestoreDocument<Project>
-  private projectOb: Observable<Project>
+  projectOb: Observable<Project>
 
   constructor(
     private _afs: AngularFirestore
-  ) {
-    this.projectCollectionHome = this._afs
+  ) { }
+
+  loadProjectsHome() {
+    return this.projectCollectionHome = this._afs
       .collection<Project>('projects', ref => ref
-        .orderBy('timestamp.timestamp', 'desc')
-        .limit(4))
-    this.projects = this.projectCollectionHome.valueChanges()
+      .orderBy('timestamp.timestamp', 'desc')
+      .limit(4))
+      .valueChanges()
   }
 
-  public loadListOfProjects() {
-    this.projectCollection = this._afs
-      .collection<Project>('projects', ref => ref.orderBy('timestamp.timestamp'))
-    return this.projects = this.projectCollection.valueChanges()
+  loadListOfProjects() {
+    return this.projectCollection = this._afs
+      .collection<Project>('projects', ref => ref
+      .orderBy('timestamp.timestamp', 'desc'))
+      .valueChanges()
   }
 
-  public addProject(id: string, data: Project) {
+  addProject(id: string, data: Project) {
     return this._afs
       .collection<Project>('projects')
       .doc(id)
       .set(data)
   }
 
-  public getProjectById(id: string) {
+  getProjectById(id: string) {
     this.doc = this._afs.doc<Project>('projects/' + id)
     return this.projectOb = this.doc.valueChanges()
   }

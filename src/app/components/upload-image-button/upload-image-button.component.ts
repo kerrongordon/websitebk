@@ -1,8 +1,8 @@
 import { Component, Input, ViewChild, ElementRef, OnDestroy, EventEmitter, Output } from '@angular/core'
 import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage'
 import { Subscription } from 'rxjs/Subscription'
-import { Imagen } from '../../interface/Project'
-import { ImageService } from '../../services/image/image.service'
+import { Imagen } from '@interface/Project'
+import { ImageService } from '@services/image/image.service'
 
 
 @Component({
@@ -25,7 +25,6 @@ export class UploadImageButtonComponent implements OnDestroy {
   @Input() postTitle: string
   @ViewChild('imageSrc') imageSrc: ElementRef
   @Output() downloadURLOut = new EventEmitter
-  // @Output() addFile = new EventEmitter
 
   constructor(
     private _afsage: AngularFireStorage,

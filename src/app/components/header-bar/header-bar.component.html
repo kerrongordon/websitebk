@@ -1,6 +1,6 @@
 <header class="headerBar">
 
-  <i class="ion-ios-home icon" routerLink="/"></i>
+  <i class="ion-ios-home icon" routerLink="/" tabindex="1"></i>
 
   <div class="searchBarCon">
 
@@ -8,7 +8,7 @@
 
       <i class="ion-ios-search-strong icon"></i>
 
-      <input class="search" id="search" type="search" placeholder="Search Projects" (keyup)="search($event.target.value)" (focus)="focusSearch()"
+      <input class="search" id="search" tabindex="2" type="search" placeholder="Search Projects" (keyup)="search($event.target.value)" (focus)="focusSearch()"
         (blur)="blurSearch()">
 
       <div class="searchOutPut">
@@ -32,8 +32,8 @@
 
   </div>
 
-  <i class="ion-ios-albums icon" routerLink="/projects"></i>
+  <i class="ion-ios-albums icon" routerLink="/projects" tabindex="3"></i>
 
-  <i class="ion-ios-person icon" routerLink="/login"></i>
+  <i class="ion-ios-person icon" routerLink="/login" tabindex="4"></i>
 
 </header>

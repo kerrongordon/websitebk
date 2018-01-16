@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { NotificationService } from '../../services/notification/notification.service'
-import { AuthService } from '../../services/auth/auth.service'
+import { NotificationService } from '@services/notification/notification.service'
+import { AuthService } from '@services/auth/auth.service'
 
 @Component({
   selector: 'kgp-login',

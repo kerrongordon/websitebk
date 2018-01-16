@@ -18,6 +18,7 @@
     "baseUrl": "src",
     "paths": {
       "@pipe/*": ["app/pipe/*"],
+      "@exports/*": ["app/exports/*"],
       "@services/*": ["app/services/*"],
       "@interface/*": ["app/interface/*"],
       "@directives/*": ["app/directives/*"],

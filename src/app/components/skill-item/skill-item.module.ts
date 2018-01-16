@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { SkillItemComponent } from './skill-item.component'
-import { ProgressbarModule } from '../progressbar/progressbar.module'
+import { ProgressbarModule } from '@components/progressbar/progressbar.module'
 
 @NgModule({
   imports: [

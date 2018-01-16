@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'
-import { ProjectService } from '../../services/project/project.service'
-import { Subscription } from 'rxjs/Subscription'
-import { Project } from '../../interface/Project'
+import { Component, OnInit } from '@angular/core'
+import { ProjectService } from '@services/project/project.service'
+import { Project } from '@interface/Project'
+import { Observable } from 'rxjs/Observable'
 
 @Component({
   selector: 'kgp-projects',
@@ -9,24 +9,14 @@ import { Project } from '../../interface/Project'
   styleUrls: ['./projects.component.sass'],
   providers: [ProjectService]
 })
-export class ProjectsComponent implements OnInit, OnDestroy {
+export class ProjectsComponent implements OnInit {
 
-  projectsInit: Project[]
-  private projectSub: Subscription
+  projects: Observable<Project[]>
 
   constructor(private _ps: ProjectService) { }
 
   ngOnInit() {
-    this.loadProjects()
-  }
-
-  loadProjects() {
-    return this.projectSub = this._ps.loadListOfProjects()
-      .subscribe(data => this.projectsInit = data.reverse())
-  }
-
-  ngOnDestroy() {
-    this.projectSub.unsubscribe()
+    this.projects = this._ps.loadListOfProjects()
   }
 
 }

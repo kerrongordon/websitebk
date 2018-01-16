@@ -4,14 +4,14 @@ import { Routes, RouterModule } from '@angular/router'
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { ProjectComponent } from './project.component'
 
-import { CenterModule } from '../../directives/center/center.module'
+import { CenterModule } from '@directives/center/center.module'
 
-import { FooterModule } from '../../components/footer/footer.module'
-import { HeroModule } from '../../components/hero/hero.module'
-import { HeaderBarModule } from '../../components/header-bar/header-bar.module'
-import { CardImageModule } from '../../components/card-image/card-image.module'
+import { FooterModule } from '@components/footer/footer.module'
+import { HeroModule } from '@components/hero/hero.module'
+import { HeaderBarModule } from '@components/header-bar/header-bar.module'
+import { CardImageModule } from '@components/card-image/card-image.module'
 
-import { UrlsanModule } from '../../pipe/urlsan/urlsan.module'
+import { UrlsanModule } from '@pipe/urlsan/urlsan.module'
 
 const routes: Routes = [
   { path: '', component: ProjectComponent }

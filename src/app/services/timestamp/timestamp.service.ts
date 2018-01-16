@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
-import Months from '../../exports/Months'
-import Weekday from '../../exports/Weekday'
+import Months from '@exports/Months'
+import Weekday from '@exports/Weekday'
 
 @Injectable()
 export class TimestampService {

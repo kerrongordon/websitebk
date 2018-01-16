@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Subscription } from 'rxjs/Subscription'
-import { ProjectService } from '../../services/project/project.service'
-import { Project } from '../../interface/Project'
+import { ProjectService } from '@services/project/project.service'
+import { Project } from '@interface/Project'
 
 @Component({
   selector: 'kgp-header-bar',
@@ -20,8 +20,7 @@ export class HeaderBarComponent implements OnInit {
 
   constructor(private _ps: ProjectService ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   focusSearch() {
     this.toggleSearchClass = true

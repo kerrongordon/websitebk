@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { Email } from '../../interface/email'
+import { Email } from '@interface/email'
 import { Observable } from 'rxjs/Observable'
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore'
 

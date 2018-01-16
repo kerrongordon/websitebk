@@ -1,5 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core'
-import { fadeInOutImg } from '../../exports/animations'
+import { fadeInOutImg } from '@exports/animations'
 import { Imagen } from '@interface/Project'
 
 @Component({

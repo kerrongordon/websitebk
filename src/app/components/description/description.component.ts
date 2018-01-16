@@ -1,5 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core'
-import { Description } from '../../services/description/description.service'
+import { Description } from '@services/description/description.service'
 
 @Component({
   selector: 'kgp-description',

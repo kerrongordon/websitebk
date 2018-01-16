@@ -1,8 +1,10 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { DescriptionService } from '@services/description/description.service'
 import { SkillsService } from '@services/skills/skills.service'
 import { ProjectService } from '@services/project/project.service'
 import { SocialLink } from '@interface/social'
+import { Observable } from 'rxjs/Observable'
+import { Project } from '@interface/Project'
 
 @Component({
   selector: 'kgp-home',
@@ -10,7 +12,10 @@ import { SocialLink } from '@interface/social'
   styleUrls: ['./home.component.sass'],
   providers: [DescriptionService, SkillsService, ProjectService]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
+  projects: Observable<Project[]>
+
   socialLink: SocialLink[] = [
     { link: 'https://www.facebook.com/kerron.gordon', title: 'facebook' },
     { link: 'https://twitter.com/kerrongordon', title: 'twitter' },
@@ -23,7 +28,11 @@ export class HomeComponent {
   constructor(
     public _ds: DescriptionService,
     public _ss: SkillsService,
-    public _ps: ProjectService
+    private _ps: ProjectService
   ) { }
+
+  ngOnInit() {
+    this.projects = this._ps.loadProjectsHome()
+  }
 
 }
