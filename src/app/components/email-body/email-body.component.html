@@ -24,12 +24,7 @@
   </div>
 
   <div class="footer">
-    <button type="button" class="btn danger" (click)="deleteItem( data.id )">
-      <div class="btnicon">
-        <i class="material-icons">delete</i>
-      </div>
-      <div>Delete</div>
-    </button>
+    <kgp-button danger icon="ion-ios-trash" (onClick)="deleteItem( data.id )">Delete</kgp-button>
   </div>
 
 </div>
@@ -37,7 +32,7 @@
 <ng-template #loading>
   <div class="load">
     <div class="icon">
-      <i class="far fa-envelope"></i>
+      <i class="ion-ios-email-outline"></i>
     </div>
     <h3>No Messages Selected</h3>
   </div>

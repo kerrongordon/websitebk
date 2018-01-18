@@ -14,9 +14,7 @@
 
 
     <kgp-email-body [data]="openMassageItem" (delete)="deleteMessage($event)">
-      <button type="button" class="btn primary closebtn" (click)="closeOpenMail()">
-        <i class="far fa-times-circle fa-fw fa-lg"></i>
-      </button>
+      <kgp-button primary icon="ion-ios-close" class="closebtn" (onClick)="closeOpenMail()"></kgp-button>
     </kgp-email-body>
 
   </div>
