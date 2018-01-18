@@ -1,27 +1,12 @@
 <div class="bar">
 
-    <div class="item" routerLinkActive="isActive" routerLink="/admin">
-      <div class="icon"><i class="far fa-chart-bar fa-fw fa-lg"></i></div>
-      <h5 class="menuTitle">Dashboard</h5>
-    </div>
-
-    <div class="item" routerLinkActive="isActive" routerLink="/message">
-      <div class="icon"><i class="far fa-comment fa-fw fa-lg"></i></div>
-      <h5 class="menuTitle">Message's</h5>
-    </div>
-
-    <div class="item" routerLinkActive="isActive" routerLink="/addproject">
-      <div class="icon"><i class="far fa-plus-square fa-fw fa-lg"></i></div>
-      <h5 class="menuTitle">Add Project</h5>
-    </div>
-
-    <div class="item" routerLinkActive="isActive" routerLink="['']">
-      <div class="icon"><i class="fas fa-list-ul fa-fw fa-lg"></i></div>
-      <h5 class="menuTitle">Projects</h5>
+    <div *ngFor="let item of addminbar" class="item" routerLinkActive="isActive" [routerLink]="item.link">
+      <div class="icon"><i [class]="item.icon"></i></div>
+      <h5 class="menuTitle">{{ item.title }}</h5>
     </div>
 
     <div class="item" routerLinkActive="isActive" (click)="logout()">
-      <div class="icon"><i class="fas fa-sign-out-alt fa-fw fa-lg"></i></div>
+      <div class="icon"><i class="ion-ios-undo-outline"></i></div>
       <h5 class="menuTitle">LogOut</h5>
     </div>
 
