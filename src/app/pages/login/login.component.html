@@ -1,7 +1,7 @@
   <div class="userIcon">
     <div class="borderline"></div>
     <div class="roundblue"></div>
-    <div class="icon"><i class="fas fa-user-circle fa-fw"></i></div>
+    <div class="icon"><i class="ion-ios-person"></i></div>
   </div>
 
   <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
@@ -15,20 +15,12 @@
     </div>
     
     <div class="item item-btn">
-      <button type="submit" class="btn primary">
-        <div class="btnicon">
-          <i class="fas fa-sign-in-alt fa-fw"></i>
-        </div>
-        <div>Login</div>
-      </button>
 
-      <button type="button" class="btn secondary" routerLink="''">
-        <div class="btnicon">
-          <i class="fas fa-times-circle fa-fw"></i>
-        </div>
-        <div>Cancel</div>
-      </button>
+      <kgp-button [icon]="isLoading" primary type="submit">Login</kgp-button>
+      <kgp-button icon="ion-ios-close" secondary routerLink="''">Cancel</kgp-button>
+      
     </div>
+  
 
   </form>
 

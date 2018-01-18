@@ -13,6 +13,7 @@ import { AuthService } from '@services/auth/auth.service'
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup
+  isLoading = 'ion-ios-compose'
 
   constructor(
     private _ns: NotificationService,
@@ -68,10 +69,11 @@ export class LoginComponent implements OnInit {
     this.emailV()
   }
 
-
   login() {
     const { loginEmail, loginPassword } = this.loginForm.value
+    this.isLoading = 'ion-load-c'
     return this._as.login(loginEmail, loginPassword)
+      .then(() => this.isLoading = 'ion-ios-compose')
   }
 
 }
