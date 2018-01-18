@@ -5,12 +5,13 @@ import { ProjectService } from '@services/project/project.service'
 import { SocialLink } from '@interface/social'
 import { Observable } from 'rxjs/Observable'
 import { Project } from '@interface/Project'
+import { SeoService } from '@services/seo/seo.service'
 
 @Component({
   selector: 'kgp-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.sass'],
-  providers: [DescriptionService, SkillsService, ProjectService]
+  providers: [DescriptionService, SkillsService, ProjectService, SeoService]
 })
 export class HomeComponent implements OnInit {
 
@@ -28,11 +29,22 @@ export class HomeComponent implements OnInit {
   constructor(
     public _ds: DescriptionService,
     public _ss: SkillsService,
-    private _ps: ProjectService
+    private _ps: ProjectService,
+    private seo: SeoService
   ) { }
 
   ngOnInit() {
+    this.metaLoad()
     this.projects = this._ps.loadProjectsHome()
+  }
+
+  metaLoad() {
+    return this.seo.generateTags({
+      title: 'Contact Page',
+      description: 'Contact me through this awesome search engine optimized Angular component',
+      image: 'https://instafire-app.firebaseapp.com/assets/meerkat.jpeg',
+      slug: 'contact-page'
+    })
   }
 
 }
