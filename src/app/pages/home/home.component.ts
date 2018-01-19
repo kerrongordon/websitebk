@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { DescriptionService } from '@services/description/description.service'
+import { DescriptionService, Description } from '@services/description/description.service'
 import { SkillsService } from '@services/skills/skills.service'
 import { ProjectService } from '@services/project/project.service'
 import { SocialLink } from '@interface/social'
@@ -16,6 +16,7 @@ import { SeoService } from '@services/seo/seo.service'
 export class HomeComponent implements OnInit {
 
   projects: Observable<Project[]>
+  description: Observable<Description>
 
   socialLink: SocialLink[] = [
     { link: 'https://www.facebook.com/kerron.gordon', title: 'facebook' },
@@ -27,7 +28,7 @@ export class HomeComponent implements OnInit {
   ]
 
   constructor(
-    public _ds: DescriptionService,
+    private _ds: DescriptionService,
     public _ss: SkillsService,
     private _ps: ProjectService,
     private seo: SeoService
@@ -36,6 +37,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.metaLoad()
     this.projects = this._ps.loadProjectsHome()
+    this.description = this._ds.loadDes()
   }
 
   metaLoad() {

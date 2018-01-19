@@ -14,9 +14,11 @@ export class DescriptionService {
 
   constructor(
     private _afs: AngularFirestore
-  ) {
+  ) {}
+
+  loadDes() {
     this.descriptionDoc = this._afs.doc<Description>('description/0')
-    this.description = this.descriptionDoc.valueChanges()
+    return this.description = this.descriptionDoc.valueChanges()
   }
 
 }
