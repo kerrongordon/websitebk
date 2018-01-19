@@ -11,8 +11,7 @@
     </div>
 
     <div class="imgCon">
-      <img [@fadeInOut]="fadeInState" class="img base" [src]="project.image.big.base64" [alt]="project.title">
-      <img [@fadeInOut]="fadeOutState" class="img" [src]="project.image.big.url" (load)="isImgeLoad()" [alt]="project.title">
+      <kgp-card-image page [data]="project.image.big" [alt]="project.title"></kgp-card-image>
     </div>
 
   </div>
@@ -43,7 +42,7 @@
     </div>
 
     <div class="imgCon">
-      <div class="facebookloading img" [ngStyle]="{'height': '500px'}"></div>
+      <kgp-card-image page loading></kgp-card-image>
     </div>
 
   </div>
