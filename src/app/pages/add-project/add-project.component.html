@@ -16,16 +16,8 @@
 
       <div>
 
-        <button (click)="toggleView()" class="btn secondary">
-          <div class="btnicon" [ngClass]="{'hideView': htmlView}">
-            <i class="fas fa-code fa-fw" ></i>
-          </div>
-          <div class="btnicon" [ngClass]="{'hideView': !htmlView}">
-            <i class="far fa-edit fa-fw"></i>
-          </div>
-          <div [ngClass]="{'hideView': htmlView}">View</div>
-          <div [ngClass]="{'hideView': !htmlView}">Edit</div>
-        </button>
+        <kgp-button secondary icon="ion-ios-compose" (onClick)="toggleView()" [ngClass]="{'hideView': htmlView}">View</kgp-button>
+        <kgp-button secondary icon="ion-ios-browsers" (onClick)="toggleView()" [ngClass]="{'hideView': !htmlView}">Edit</kgp-button>
 
       </div>
 
@@ -53,21 +45,8 @@
     </div>
 
     <div class="btnc">
-
-      <button type="submit" class="btn secondary">
-        <div class="btnicon">
-          <i class="fas fa-save fa-fw"></i>
-        </div>
-        <div>Submit</div>
-      </button>
-
-      <button type="button" class="btn primary" (click)="resetEmailForm()">
-        <div class="btnicon">
-          <i class="fas fa-times-circle fa-fw"></i>
-        </div>
-        <div>Cancel</div>
-      </button>
-
+      <kgp-button secondary icon="ion-ios-compose" type="submit">Submit</kgp-button>
+      <kgp-button primary icon="ion-ios-close" (onClick)="resetEmailForm()">Cancel</kgp-button>
     </div>
 
   </form>

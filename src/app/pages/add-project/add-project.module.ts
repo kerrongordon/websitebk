@@ -7,6 +7,7 @@ import { UrlsanModule } from '@pipe/urlsan/urlsan.module'
 import { AdminBarModule } from '@components/admin-bar/admin-bar.module'
 import { UploadImageButtonModule } from '@components/upload-image-button/upload-image-button.module'
 import { AutosizeDirective } from '@directives/autosize/autosize.directive'
+import { ButtonModule } from '@components/button/button.module'
 
 const routes: Routes = [
   { path: '', component: AddProjectComponent }
@@ -18,6 +19,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     UrlsanModule,
     AdminBarModule,
+    ButtonModule,
     UploadImageButtonModule,
     RouterModule.forChild(routes)
   ],
