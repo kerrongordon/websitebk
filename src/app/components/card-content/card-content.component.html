@@ -1,4 +1,4 @@
-<div *ngIf="data">
+<div *ngIf="data; else loading">
     <h4 class="hideOText">{{ data.title | truncate: 20 }}</h4>
     <p>{{ data.content | truncate: 50 }}</p>
     <span>
@@ -6,3 +6,12 @@
         Posted On {{ monthS }} {{ data.timestamp.date }}, {{ data.timestamp.year }}
     </span>
 </div>
+
+<ng-template #loading>
+    <div class="facebookloading w40 pad"></div>
+    <div class="facebookloading w75 hs5 pad"></div>
+    <div class="facebookloading w50 hs5 pad"></div>
+    <span>
+        <div class="facebookloading w70 hs5"></div>
+    </span>
+</ng-template>

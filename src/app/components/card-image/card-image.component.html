@@ -1,4 +1,8 @@
-<div class="imageCon" *ngIf="data">
-    <img [@fadeInOut]="fadeInState" class="base" [src]="data.base64" [alt]="alt">
-    <img [@fadeInOut]="fadeOutState" [src]="data.url" (load)="imgeLoad()" [alt]="alt">
+<div class="imageCon" *ngIf="data; else loading">
+    <img [@fadeInOut]="fadeInState" class="img base" [src]="data.base64" [alt]="alt">
+    <img [@fadeInOut]="fadeOutState" class="img" [src]="data.url" (load)="imgeLoad()" [alt]="alt">
 </div>
+
+<ng-template #loading>
+    <div class="facebookloading img lod"></div>
+</ng-template>

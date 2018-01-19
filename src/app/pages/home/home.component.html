@@ -12,7 +12,7 @@
 <div class="skill-wrap">
     <kgp-skill-item *ngFor="let skill of ( skills | async); index as i" [tabindex]="'1' + i" [content]="skill.title" [level]="skill.level"></kgp-skill-item>
     <ng-container *ngIf="( skills | async) == null">
-        <kgp-skill-item *ngFor="let skill of [1,2,3,4,5,6,7,8]; index as i" [content]="skill.title" [level]="skill.level"></kgp-skill-item>
+        <kgp-skill-item *ngFor="let skill of [1,2,3,4,5,6,7,8]"></kgp-skill-item>
     </ng-container>
 </div>
 
@@ -24,10 +24,17 @@
 
     <div class="project-grid">
 
-        <kgp-card *ngFor="let project of (projects | async) index as i" routerLink="/project/{{ project.id }}" [tabindex]="'2' + i">
+        <kgp-card *ngFor="let project of ( projects | async ) index as i" routerLink="/project/{{ project.id }}" [tabindex]="'2' + i">
             <kgp-card-image [data]="project.image.small" [alt]="project.title"></kgp-card-image>
             <kgp-card-content [data]="project"></kgp-card-content>
         </kgp-card>
+
+        <ng-container *ngIf="( projects | async ) == null">
+            <kgp-card loading *ngFor="let project of [1,2,3,4]">
+                <kgp-card-image></kgp-card-image>
+                <kgp-card-content></kgp-card-content>
+            </kgp-card>
+        </ng-container>
 
     </div>
 

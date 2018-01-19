@@ -16,6 +16,7 @@ export class CardContentComponent implements OnInit {
   }
 
   private constr() {
+    if (!this.data) { return }
     if (!this.data.timestamp.month) { return }
     const mk = this.data.timestamp.month.slice(0, 3)
     return this.monthS = mk
