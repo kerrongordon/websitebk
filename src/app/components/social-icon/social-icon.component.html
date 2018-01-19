@@ -1,5 +1,5 @@
-<div class="item" *ngFor="let link of links">
-  <a target="_blank" class="icon" rel="noopener" [href]="link.link">
+<div class="item" *ngFor="let link of links; index as i">
+  <a target="_blank" class="icon" rel="noopener" [href]="link.link" [tabindex]="i+5">
     <span class="name">{{ link.title }}</span>
     <i class="ion-social-{{ link.title }}"></i>
   </a>
