@@ -1,12 +1,12 @@
 <kgp-header-bar></kgp-header-bar>
 
-<kgp-hero title="My Projects"></kgp-hero>
+<kgp-hero title="Projects"></kgp-hero>
 
 <div class="moveUp">
 
     <div class="project-grid">
 
-    <kgp-card *ngFor="let project of (projects | async)" routerLink="/project/{{ project.id }}">
+    <kgp-card *ngFor="let project of (projects | async); index as i" routerLink="/project/{{ project.id }}" [tabindex]="5 + i">
         <kgp-card-image [data]="project.image.small" [alt]="project.title"></kgp-card-image>
         <kgp-card-content [data]="project"></kgp-card-content>
     </kgp-card>

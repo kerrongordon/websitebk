@@ -1,7 +1,7 @@
 <div *ngIf="data; else loading">
     <h4 class="hideOText">{{ data.title | truncate: 20 }}</h4>
-    <p>{{ data.content | truncate: 50 }}</p>
-    <span>
+    <p class="textover">{{ data.content | truncate: 50 }}</p>
+    <span class="hideOText">
         <i class="ion-ios-clock-outline"></i>
         Posted On {{ monthS }} {{ data.timestamp.date }}, {{ data.timestamp.year }}
     </span>

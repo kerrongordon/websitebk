@@ -41,72 +41,6 @@ img
     width: 100%
     vertical-align: bottom
 
-//.btn
-//    display: flex
-//    outline: none
-//    color: $light
-//    cursor: pointer
-//    font-size: 14px
-//    background: #ccc
-//    border-radius: 5px
-//    flex-direction: row
-//    align-items: center
-//    padding: 6px 20px
-//    border: transparent
-//    box-sizing: border-box
-//    transform: translateY(0px)
-//    place-content: center space-between
-//    transition: box-shadow .3s ease-in-out, transform .3s ease-in-out
-//    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16)
-//
-//    &.primary
-//        background: $primary
-//        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16)
-//
-//        &:hover
-//            transform: translateY(-3px)
-//            box-shadow: 0 15px 35px rgba($primary,.3), 0 5px 15px rgba($primary,.4)
-//
-//        &:active
-//            transform: translateY(0px)
-//            box-shadow: 0 2px 4px rgba($primary, 0.3), 0 7px 14px rgba($primary, 0.4)
-//
-//    &.secondary
-//        background: $secondary
-//        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16)
-//
-//        &:hover
-//            transform: translateY(-3px)
-//            box-shadow: 0 15px 35px rgba($secondary,.3), 0 5px 15px rgba($secondary,.4)
-//
-//        &:active
-//            transform: translateY(0px)
-//            box-shadow: 0 2px 4px rgba($secondary, 0.3), 0 7px 14px rgba($secondary, 0.4)
-//
-//    &.danger
-//        background: $danger
-//        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16)
-//
-//        &:hover
-//            transform: translateY(-3px)
-//            box-shadow: 0 15px 35px rgba($danger,.3), 0 5px 15px rgba($danger,.4)
-//
-//        &:active
-//            transform: translateY(0px)
-//            box-shadow: 0 2px 4px rgba($danger, 0.3), 0 7px 14px rgba($danger, 0.4)
-//
-//    &.disable
-//        background: $loadingColor
-//        color: $loadingColor
-//        box-shadow: none
-//
-//    .material-icons
-//        font-size: 18px
-//        transform: translateY(2px)
-//
-//    .btnicon
-//        padding-right: 6px
-
 
 .notification
     width: auto
@@ -282,3 +216,26 @@ img
 
 .fullheight
     height: 100%
+
+
+.project-grid
+    display: grid
+    grid-template-columns: minmax(40%, 1fr) minmax(40%, 1fr)
+    grid-gap: 2em
+    padding: 0 1em
+    margin: 0 auto
+    max-width: 500px
+    align-items: self-start
+
+@media screen and (min-width: 700px)
+
+    .project-grid
+        max-width: 800px
+        grid-template-columns: minmax(30%, 1fr) minmax(30%, 1fr) minmax(30%, 1fr)
+
+
+@media screen and (min-width: 1000px)
+
+    .project-grid
+        max-width: 1100px
+        grid-template-columns: minmax(20%, 1fr) minmax(20%, 1fr) minmax(20%, 1fr) minmax(20%, 1fr)

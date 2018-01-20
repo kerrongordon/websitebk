@@ -26,10 +26,10 @@ export class ProjectsComponent implements OnInit {
 
   metaLoad() {
     return this.seo.generateTags({
-      title: 'Projects Page',
-      description: 'Contact me through this awesome search engine optimized Angular component',
-      image: 'https://instafire-app.firebaseapp.com/assets/meerkat.jpeg',
-      slug: 'contact-page'
+      title: 'Projects | Kerron Gordon',
+      description: 'Kerron specializes in making exceptional websites',
+      image: 'https://kerron-gordon.firebaseapp.com/assets/desktop.jpeg',
+      slug: 'projects'
     })
   }
 

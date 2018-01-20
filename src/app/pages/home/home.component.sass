@@ -8,13 +8,6 @@
     margin: 0 auto 100px
     grid-template-columns: 1fr 1fr
 
-.project-grid
-    display: grid
-    grid-template-columns: minmax(40%, 1fr) minmax(40%, 1fr)
-    grid-gap: 1em
-    padding: 0 1em
-    align-items: self-start
-
 .landingline
     border-bottom: 1px solid #cacaca
 
@@ -41,25 +34,14 @@
     justify-content: center
     margin: 3em 0 0
 
+@media screen and (max-width: 699px)
 
-@media screen and (min-width: 600px)
-
-  .project-grid
-      max-width: 600px
-      margin: 0 auto
-
-@media screen and (min-width: 980px)
-
-    .project-grid
-        grid-template-columns: repeat(4, 1fr)
-        max-width: 1000px
-
-@media screen and (min-width: 600px) and (max-width: 979px)
-
+    kgp-card:nth-child(3),
     kgp-card:nth-child(4)
         display: none
 
-    .project-grid
-        max-width: 800px
-        grid-template-columns: minmax(30%, 1fr) minmax(30%, 1fr) minmax(30%, 1fr)
 
+@media screen and (min-width: 700px) and (max-width: 999px)
+
+    kgp-card:nth-child(4)
+        display: none

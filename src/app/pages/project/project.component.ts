@@ -4,12 +4,13 @@ import { ActivatedRoute } from '@angular/router'
 import { Subscription } from 'rxjs/Subscription'
 import { Project } from '@interface/Project'
 import { Observable } from 'rxjs/Observable'
+import { SeoService } from '@services/seo/seo.service'
 
 @Component({
   selector: 'kgp-project',
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.sass'],
-  providers: [ProjectService]
+  providers: [ProjectService, SeoService]
 })
 export class ProjectComponent implements OnInit, OnDestroy {
 
@@ -19,7 +20,8 @@ export class ProjectComponent implements OnInit, OnDestroy {
 
   constructor(
     private _avr: ActivatedRoute,
-    public _ps: ProjectService
+    private _ps: ProjectService,
+    private seo: SeoService
   ) {  }
 
   ngOnInit() {
@@ -32,10 +34,24 @@ export class ProjectComponent implements OnInit, OnDestroy {
 
   getPageId() {
     this.ids = this._avr.snapshot.params['id']
-    return this.project = this._ps.getProjectById(this.ids)
+    this.project = this._ps.getProjectById(this.ids)
+    return this.metaLoad()
+  }
+
+  metaLoad() {
+    return this.project.take(1).subscribe(data => {
+      const str = data.content
+      return this.seo.generateTags({
+        title: `${data.title} | Kerron Gordon`,
+        description: str.slice(1, 150),
+        image: data.image.big.url,
+        slug: `project/${data.id}`
+      })
+    })
   }
 
   ngOnDestroy() {
+    this.metaLoad().unsubscribe()
     this.reload.unsubscribe()
   }
 
