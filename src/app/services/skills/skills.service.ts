@@ -20,4 +20,8 @@ export class SkillsService {
     return this.skills = this.skillsCollection.valueChanges()
   }
 
+  updateSkill(id: string, data: Skills) {
+    return this.skillsCollection.doc(id).update(data)
+  }
+
 }

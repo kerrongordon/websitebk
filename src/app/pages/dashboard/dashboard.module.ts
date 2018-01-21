@@ -5,6 +5,8 @@ import { DashboardComponent } from './dashboard.component'
 import { FooterModule } from '@components/footer/footer.module'
 import { AdminBarModule } from '@components/admin-bar/admin-bar.module'
 import { TruncateModule } from '@pipe/truncate/truncate.module'
+import { FormsModule } from '@angular/forms'
+import { ButtonModule } from '@components/button/button.module'
 
 const routes: Routes = [
   {
@@ -19,6 +21,8 @@ const routes: Routes = [
     FooterModule,
     AdminBarModule,
     TruncateModule,
+    FormsModule,
+    ButtonModule,
     RouterModule.forChild(routes)
   ],
   declarations: [DashboardComponent]

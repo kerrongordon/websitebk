@@ -6,38 +6,57 @@
     <div class="header">
 
       <div class="item projects">
-        <div class="icon"><i class="ion-ios-pie-outline"></i></div>
+        <div class="icon"><i class="ion-ios-pulse"></i></div>
         <div><h3>Projects</h3></div>
-        <div><h1>{{ projectNum }}</h1></div>
+        <div>
+          <h1 *ngIf="projects | async; let project">{{ project.length }}</h1>
+          <h1 *ngIf="(projects | async) == null">0</h1>
+        </div>
       </div>
 
       <div class="item skills">
         <div class="icon"><i class="ion-ios-settings"></i></div>
         <div><h3>Skills</h3></div>
-        <div><h1>{{ skillsNum }}</h1></div>
+        <div>
+          <h1 *ngIf="skills | async; let skill">{{ skill.length }}</h1>
+          <h1 *ngIf="(skills | async) == null">0</h1>
+        </div>
       </div>
 
       <div class="item messages">
         <div class="icon"><i class="ion-ios-email-outline"></i></div>
         <div><h3>Messages</h3></div>
-        <div><h1>{{ messageNum }}</h1></div>
+        <div>
+          <h1 *ngIf="messages | async; let message">{{ message.length }}</h1>
+          <h1 *ngIf="(messages | async) == null">0</h1>
+        </div>
       </div>
 
     </div> 
-    <!-- header end -->
 
     <div class="editbar">
 
-      <div class="card">
-        <ul>
-          <li *ngFor="let item of projects" [id]="item.id">
-            <h4>{{ item.title }}</h4>
-            <p>{{ item.content | truncate: 50 }}</p>
-            <div class="date">Posted On {{ item.timestamp.month }} {{ item.timestamp.date }}, {{ item.timestamp.year }}</div>
-          </li>
-        </ul>
-      </div>
+      <div class="skillbar">
+        <h1>skills</h1>
 
+        <div *ngFor="let skill of (skills | async); index as i" [id]="i">
+          <div class="skillItem" (click)="editSkill(i)">
+            <h4>{{ skill.title }}</h4>
+            <h4>{{ skill.level }}</h4>
+          </div>
+          <form class="skillform none" (submit)="updateSkill(i, skill.title, skill.level)">
+            <input class="input" [value]="skill.title" (input)="skill.title = $event.target.value">
+            <input class="input" [value]="skill.level" (input)="skill.level = $event.target.value">
+            <kgp-button primary icon="ion-ios-paperplane" type="submit">Save</kgp-button>
+          </form>
+        </div>
+      </div>
+      <div class="descripbar">
+        <h1>description</h1>
+        <input [value]="testout" (input)="testout = $event.target.value">
+        <p>test {{ testout }}</p>
+      </div>
+      
     </div>
 
   </div>

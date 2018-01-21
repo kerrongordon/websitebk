@@ -11,7 +11,6 @@
     display: none
 
 .dashboardPage
-    display: grid
     overflow-x: hidden
     overflow-y: scroll
     height: 100vh
@@ -21,6 +20,7 @@
     display: grid
     grid-gap: 1em
     margin: 20px 10px
+    height: 150px
     grid-template-columns: 1fr 1fr 1fr
 
     .item
@@ -31,7 +31,7 @@
         text-align: center
         border-radius: 3px
         align-items: center
-        height: 150px
+        height: 100%
         grid-template-columns: 1fr
 
     h1,
@@ -40,48 +40,46 @@
         margin: 0
 
 .projects
-    background: $primary
-    box-shadow: 0 2px 4px rgba($primary, 0.3), 0 7px 14px rgba($primary, 0.4)
+    background: linear-gradient(to bottom right, #40bdff, #b6fe2d)
+    box-shadow: $cardShadow
 
 .skills
-    background: $secondary
-    box-shadow: 0 2px 4px rgba($secondary, 0.3), 0 7px 14px rgba($secondary, 0.4)
+    background: linear-gradient(to bottom right, #08f5f2, #0ddc97)
+    box-shadow: $cardShadow
 
 .messages
-    background: $danger
-    box-shadow: 0 2px 4px rgba($danger, 0.3), 0 7px 14px rgba($danger, 0.4)
+    background: linear-gradient(to bottom right, #ffa16e, #ff6199)
+    box-shadow: $cardShadow
 
 .icon
     font-size: 1.5em
 
-ul
-    padding: 0
-    list-style: none
 
-.card
-    justify-content: center
-    max-width: 900px
-    margin: 0 auto
-    padding: 20px
+.editbar
+    display: grid
+    grid-template-columns: 1fr 1fr
 
-    h4 
-        text-transform: capitalize
+.skillbar
+    padding: 2em
+
+.skillform
+    width: 100%
+    display: grid
+    grid-gap: 2em
+    grid-template-columns: 1fr auto auto
+
+.skillItem
+    display: grid
+    grid-gap: 2em
+    padding: 0.09em 0
+    grid-template-columns: 1fr auto
+
+    h4
         margin: 0
 
-    li
-        position: relative
-        display: block
-        width: 100%
-        border-radius: 3px
-        margin: 20px 10px
-        max-width: 300px
+.none
+    display: none
 
-    p
-        margin: 5px 0
-        font-size: 15px
-    
-    .date
-        font-size: 12px
 
 @media screen and (min-width: 600px)
     \:host
@@ -89,6 +87,7 @@ ul
         grid-template-columns: auto 1fr
 
     .header
+        padding: 0 1em
 
         .item
             grid-template-columns: 1fr 1fr
@@ -105,10 +104,12 @@ ul
 
     .header
         margin: 39px auto
+        height: 200px
+        max-width: 1200px
+        grid-gap: 5em
 
         .item
             padding: 3em
-            height: 200px
 
     .icon
         font-size: 5em

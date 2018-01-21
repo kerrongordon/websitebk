@@ -1,9 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
 import { ProjectService } from '@services/project/project.service'
-import { SkillsService } from '@services/skills/skills.service'
+import { SkillsService, Skills } from '@services/skills/skills.service'
 import { Subscription } from 'rxjs/Subscription'
 import { MessagesService } from '@services/messages/messages.service'
 import { Project } from '@interface/Project'
+import { Observable } from 'rxjs/Observable'
+import { Email } from '@interface/email'
 
 @Component({
   selector: 'kgp-dashboard',
@@ -13,15 +15,11 @@ import { Project } from '@interface/Project'
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
-  skillsNum = 0
-  projectNum = 0
-  messageNum= 0
+  skills: Observable<Skills[]>
+  projects: Observable<Project[]>
+  messages: Observable<Email[]>
 
-  projects: Project[]
-
-  private skillSub: Subscription
-  private projectSub: Subscription
-  private messageSub: Subscription
+  testout = 'ok'
 
   constructor(
     private _ps: ProjectService,
@@ -30,37 +28,24 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    // this.loadSkills()
-    this.loadProjects()
-    this.loadMessages()
+    this.skills = this._ss.loadSkills()
+    this.messages = this._ms.loadMessage()
+    this.projects = this._ps.loadListOfProjects()
   }
 
-  private loadProjects() {
-    return this.projectSub = this._ps.loadListOfProjects()
-      .subscribe(data => {
-        this.projectNum = data.length
-        this.projects = data.reverse().slice(0, 3)
-      })
+  updateSkill(id: string, title: string, level: number) {
+    const ids = id.toString()
+    const data: Skills = { title, level }
+    console.log(data)
+    return this._ss.updateSkill(ids, data)
   }
 
-  // private loadSkills() {
-  //   return this.skillSub = this._ss.loadListOfSkills()
-  //     .subscribe(data => {
-  //       this.skillsNum = data.length
-  //     })
-  // }
-
-  private loadMessages() {
-    return this.messageSub = this._ms.loadMessage()
-      .subscribe(data => {
-        this.messageNum = data.length
-      })
+  editSkill(id) {
+    console.log(id)
   }
 
   ngOnDestroy() {
-    // this.skillSub.unsubscribe()
-    this.projectSub.unsubscribe()
-    this.messageSub.unsubscribe()
+
   }
 
 }
