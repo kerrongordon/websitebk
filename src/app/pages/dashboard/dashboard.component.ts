@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   projects: Observable<Project[]>
   messages: Observable<Email[]>
 
-  testout = 'ok'
+  toggleSkills = -1
 
   constructor(
     private _ps: ProjectService,
@@ -41,7 +41,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   editSkill(id) {
-    console.log(id)
+    return this.toggleSkills = id
   }
 
   ngOnDestroy() {

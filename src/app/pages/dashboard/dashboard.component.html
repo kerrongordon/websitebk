@@ -37,14 +37,12 @@
     <div class="editbar">
 
       <div class="skillbar">
-        <h1>skills</h1>
-
-        <div *ngFor="let skill of (skills | async); index as i" [id]="i">
-          <div class="skillItem" (click)="editSkill(i)">
+        <div *ngFor="let skill of (skills | async); index as i" [id]="i" class="item">
+          <div class="skillItem" (click)="editSkill(i)" [ngClass]="{'off': toggleSkills == i}">
             <h4>{{ skill.title }}</h4>
             <h4>{{ skill.level }}</h4>
           </div>
-          <form class="skillform none" (submit)="updateSkill(i, skill.title, skill.level)">
+          <form class="skillform" [ngClass]="{'none': toggleSkills == i}" (submit)="updateSkill(i, skill.title, skill.level); toggleSkills = -1">
             <input class="input" [value]="skill.title" (input)="skill.title = $event.target.value">
             <input class="input" [value]="skill.level" (input)="skill.level = $event.target.value">
             <kgp-button primary icon="ion-ios-paperplane" type="submit">Save</kgp-button>
@@ -52,9 +50,8 @@
         </div>
       </div>
       <div class="descripbar">
-        <h1>description</h1>
-        <input [value]="testout" (input)="testout = $event.target.value">
-        <p>test {{ testout }}</p>
+        <h2>description</h2>
+        
       </div>
       
     </div>
