@@ -21,4 +21,8 @@ export class DescriptionService {
     return this.description = this.descriptionDoc.valueChanges()
   }
 
+  updateDes(data: Description) {
+    return this.descriptionDoc.update(data)
+  }
+
 }

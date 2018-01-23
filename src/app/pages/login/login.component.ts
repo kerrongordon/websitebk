@@ -3,12 +3,13 @@ import { Router } from '@angular/router'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { NotificationService } from '@services/notification/notification.service'
 import { AuthService } from '@services/auth/auth.service'
+import { SeoService } from '@services/seo/seo.service'
 
 @Component({
   selector: 'kgp-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.sass'],
-  providers: [NotificationService, AuthService]
+  providers: [NotificationService, AuthService, SeoService]
 })
 export class LoginComponent implements OnInit {
 
@@ -18,11 +19,22 @@ export class LoginComponent implements OnInit {
   constructor(
     private _ns: NotificationService,
     private _as: AuthService,
-    private _route: Router
+    private _route: Router,
+    private seo: SeoService
   ) { }
 
   ngOnInit() {
+    this.metaLoad()
     this.loadLoginForm()
+  }
+
+  metaLoad() {
+    return this.seo.generateTags({
+      title: 'Login | Kerron Gordon',
+      description: 'Kerron specializes in making exceptional websites',
+      image: 'https://kerron-gordon.firebaseapp.com/assets/desktop.jpeg',
+      slug: 'login'
+    })
   }
 
   loadLoginForm() {
