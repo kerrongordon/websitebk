@@ -45,7 +45,7 @@
     </div>
 
     <div class="btnc">
-      <kgp-button secondary icon="ion-ios-compose" type="submit">Submit</kgp-button>
+      <kgp-button secondary [icon]="isLoading" type="submit">Submit</kgp-button>
       <kgp-button primary icon="ion-ios-close" (onClick)="resetEmailForm()">Cancel</kgp-button>
     </div>
 

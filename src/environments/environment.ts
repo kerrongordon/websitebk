@@ -6,11 +6,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyBHZPhXwmI6R3DEULT3YD2JKkVRH5fpALI',
-    authDomain: 'kerron-gordon.firebaseapp.com',
-    databaseURL: 'https://kerron-gordon.firebaseio.com',
-    projectId: 'kerron-gordon',
-    storageBucket: 'kerron-gordon.appspot.com',
-    messagingSenderId: '878349723717'
+    apiKey: 'AIzaSyB17XWFQyAovkKDeCfzNfq61zbpMggSMX4',
+    authDomain: 'kgp-dev.firebaseapp.com',
+    databaseURL: 'https://kgp-dev.firebaseio.com',
+    projectId: 'kgp-dev',
+    storageBucket: 'kgp-dev.appspot.com',
+    messagingSenderId: '1067128442922'
   }
 }

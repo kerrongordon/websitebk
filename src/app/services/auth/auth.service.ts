@@ -32,7 +32,7 @@ export class AuthService implements CanActivate {
 
   logout() {
     return this.afAuth.auth.signOut()
-      .then(() => this.router.navigate(['']))
+      .then(() => this.router.navigate(['/login']))
   }
 
 }

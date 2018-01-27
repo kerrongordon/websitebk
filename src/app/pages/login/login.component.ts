@@ -86,6 +86,10 @@ export class LoginComponent implements OnInit {
     this.isLoading = 'ion-load-c'
     return this._as.login(loginEmail, loginPassword)
       .then(() => this.isLoading = 'ion-ios-compose')
+      .catch(error => {
+        this.isLoading = 'ion-ios-compose'
+        return this._ns.notifitem(error.code, error.message, true)
+      })
   }
 
 }

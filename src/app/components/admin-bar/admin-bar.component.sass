@@ -9,6 +9,7 @@
     z-index: 1
     position: relative
     cursor: pointer
+    outline: none
     transition: all .3s ease-in-out
     box-shadow: 0px 1px 0px 0px #dadada
 
@@ -22,7 +23,7 @@
         background: #f4f5fb
         z-index: 2
         color: $primary
-        box-shadow: -13px 0px 20px 3px rgba(210, 210, 210, 0.62)
+        box-shadow: 0px -15px 20px 3px rgba(210, 210, 210, 0.62)
 
 .bar
     text-align: center
@@ -42,6 +43,9 @@ i
 
     .item
         padding: 10px
+
+        &.isActive
+            box-shadow: -15px 0px 20px 3px rgba(210, 210, 210, 0.62)
 
     i
         font-size: 2em

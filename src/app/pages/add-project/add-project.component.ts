@@ -1,15 +1,17 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core'
+import { Router } from '@angular/router'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { ProjectService } from '@services/project/project.service'
 import { TimestampService } from '@services/timestamp/timestamp.service'
 import { MarkdownService } from '@services/markdown/markdown.service'
 import { Project, Imagen } from '@interface/Project'
+import { NotificationService } from '@services/notification/notification.service'
 
 @Component({
   selector: 'kgp-add-project',
   templateUrl: './add-project.component.html',
   styleUrls: ['./add-project.component.sass'],
-  providers: [ProjectService, TimestampService, MarkdownService]
+  providers: [ProjectService, TimestampService, MarkdownService, NotificationService]
 })
 export class AddProjectComponent implements OnInit {
 
@@ -25,8 +27,12 @@ export class AddProjectComponent implements OnInit {
   postTitleBind = ''
   toggleImageView = false
 
+  isLoading = 'ion-ios-compose'
+
   constructor(
+    private router: Router,
     public _ProjectService: ProjectService,
+    private _ns: NotificationService,
     private _TimestampService: TimestampService,
     private _MarkdownService: MarkdownService
   ) { }
@@ -97,13 +103,10 @@ export class AddProjectComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('this.AddProjectForm.valid', this.AddProjectForm.valid)
     if (!this.AddProjectForm.valid) { return }
-
+    this.isLoading = 'ion-load-c'
     const { projectTitle, projectMarkdown, projectWebUrl, projectGitUrl } = this.AddProjectForm.value
     const getId = this._TimestampService.getTheId()
-
-    console.log('send')
 
     Promise.all([
       this.smaillImage,
@@ -132,12 +135,15 @@ export class AddProjectComponent implements OnInit {
       }
 
       this._ProjectService.addProject(getId, projectPush)
-      console.log(projectPush)
+
     }).then(e => {
       this.resetEmailForm()
+      this.isLoading = 'ion-ios-compose'
+      return this.router.navigate(['/manageprojects'])
     })
     .catch(error => {
-      console.log('error ', error)
+      this.isLoading = 'ion-ios-compose'
+      return this._ns.notifitem(error.code, error.message, true)
     })
 
   }
