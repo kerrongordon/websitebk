@@ -1,0 +1,16 @@
+<div class="admin__sidebar--topbar">
+  <span *ngIf="message">Total (  )</span>
+  <span *ngIf="message">New (  )</span>
+  <span *ngIf="message">Read (  )</span>
+  <span *ngIf="project"></span>
+  <span *ngIf="project">Edit Projects</span>
+  <span *ngIf="project"></span>
+</div>
+
+<div class="list" *ngIf="message">
+  <ng-content></ng-content>
+</div>
+
+<div class="list" *ngIf="project">
+  <ng-content></ng-content>
+</div>
