@@ -1,13 +1,11 @@
-<kgp-admin-bar></kgp-admin-bar>
+<div class="adminPage">
 
-<div class="managepage">
-  
-  <div class="project--list">
-    <h1>list Project</h1>
-  </div>
+  <kgp-admin-bar></kgp-admin-bar>
 
-  <div class="project--body">
-    <h1>Project body</h1>
-  </div>
+  <kgp-admin-side-bar project="projects">
+    <kgp-admin-side-bar-item *ngFor="let project of (projects | async)" [data]="project"></kgp-admin-side-bar-item>
+  </kgp-admin-side-bar>
+
+  <kgp-admin-body></kgp-admin-body>
 
 </div>
