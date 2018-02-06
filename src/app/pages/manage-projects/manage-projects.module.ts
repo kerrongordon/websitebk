@@ -8,7 +8,12 @@ import { AdminSideBarModule } from '@components/admin-side-bar/admin-side-bar.mo
 import { AdminSideBarItemModule } from '@components/admin-side-bar-item/admin-side-bar-item.module'
 
 const routes: Routes = [
-  { path: '', component: ManageProjectsComponent }
+  { path: '',
+    children: [
+      { path: '', component: ManageProjectsComponent },
+      { path: ':id', component: ManageProjectsComponent }
+    ]
+  }
 ]
 
 @NgModule({

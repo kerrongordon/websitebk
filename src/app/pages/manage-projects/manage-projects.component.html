@@ -3,9 +3,14 @@
   <kgp-admin-bar></kgp-admin-bar>
 
   <kgp-admin-side-bar project="projects">
-    <kgp-admin-side-bar-item *ngFor="let project of (projects | async)" [data]="project"></kgp-admin-side-bar-item>
+    <kgp-admin-side-bar-item
+      *ngFor="let data of (projects | async)" 
+      [projectData]="data" 
+      [ngClass]="{'isActive': ids === data.id }"
+      routerLink="/manageprojects/{{ data.id }}">
+    </kgp-admin-side-bar-item>
   </kgp-admin-side-bar>
 
-  <kgp-admin-body></kgp-admin-body>
+  <kgp-admin-body [projectData]="(project | async)"></kgp-admin-body>
 
 </div>

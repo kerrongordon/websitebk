@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core'
 import { Project } from '@interface/Project'
+import { Email } from '@interface/email'
 
 @Component({
   selector: 'kgp-admin-side-bar-item',
@@ -8,7 +9,8 @@ import { Project } from '@interface/Project'
 })
 export class AdminSideBarItemComponent implements OnInit {
 
-  @Input() data: Project
+  @Input() projectData: Project
+  @Input() emailData: Email
 
   constructor() { }
 
