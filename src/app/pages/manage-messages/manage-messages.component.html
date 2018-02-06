@@ -1,0 +1,16 @@
+<div class="adminPage">
+
+  <kgp-admin-bar mLink="/messages/{{ ids }}"></kgp-admin-bar>
+
+  <kgp-admin-side-bar [message]="(messages | async)">
+    <kgp-admin-side-bar-item 
+      *ngFor="let data of (messages | async) | reverse; index as i" 
+      [emailData]="data" [ngClass]="{'isActive': ids === data.id }"
+      id="item{{ i }}" target="_self" 
+      routerLink="/messages/{{ data.id }}" fragment="item{{ i }}">
+    </kgp-admin-side-bar-item>
+  </kgp-admin-side-bar>
+  
+  <kgp-admin-body [messageData]="(message | async)"></kgp-admin-body>
+
+</div>
