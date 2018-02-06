@@ -23,6 +23,7 @@ export class UploadImageButtonComponent implements OnDestroy {
 
   @Input() type: string
   @Input() postTitle: string
+  @Input() preImage: string
   @ViewChild('imageSrc') imageSrc: ElementRef
   @Output() downloadURLOut = new EventEmitter
 
@@ -43,6 +44,10 @@ export class UploadImageButtonComponent implements OnDestroy {
   }
 
   onload(e) {
+    const str = e.path['0'].currentSrc
+    const r = str.toString()
+    const n = r.includes('https')
+    if (n) { return }
     const imageId = this.imageSrc.nativeElement
     return this._imgs.ImageToBase64Small(imageId)
       .then((img) => this.uploadFile(img))

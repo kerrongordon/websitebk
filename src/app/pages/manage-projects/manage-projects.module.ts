@@ -6,6 +6,7 @@ import { AdminBarModule } from '@components/admin-bar/admin-bar.module'
 import { AdminBodyModule } from '@components/admin-body/admin-body.module'
 import { AdminSideBarModule } from '@components/admin-side-bar/admin-side-bar.module'
 import { AdminSideBarItemModule } from '@components/admin-side-bar-item/admin-side-bar-item.module'
+import { UploadImageButtonModule } from '@components/upload-image-button/upload-image-button.module'
 
 const routes: Routes = [
   { path: '',
@@ -23,6 +24,7 @@ const routes: Routes = [
     AdminBodyModule,
     AdminSideBarModule,
     AdminSideBarItemModule,
+    UploadImageButtonModule,
     RouterModule.forChild(routes)
   ],
   declarations: [ManageProjectsComponent]

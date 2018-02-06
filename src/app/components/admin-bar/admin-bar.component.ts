@@ -8,7 +8,9 @@ import { AuthService } from '@services/auth/auth.service'
   providers: [AuthService]
 })
 export class AdminBarComponent implements OnChanges {
-  @Input() link = '/manageprojects/all'
+
+  @Input() pLink = '/manageprojects/all'
+  @Input() mLink = '/messages/all'
   addminbar: { title: string; icon: string; link: string; }[]
 
   constructor(
@@ -16,18 +18,18 @@ export class AdminBarComponent implements OnChanges {
   ) {
     this.addminbar = [
       { title: 'Dashboard', icon: 'ion-ios-analytics-outline', link: '/admin' },
-      { title: 'Message', icon: 'ion-ios-chatboxes-outline', link: '/message' },
+      { title: 'Messages', icon: 'ion-ios-chatboxes-outline', link: this.mLink },
       { title: 'Add Project', icon: 'ion-ios-compose-outline', link: '/addproject' },
-      { title: 'Projects', icon: 'ion-ios-albums-outline', link: this.link }
+      { title: 'Projects', icon: 'ion-ios-albums-outline', link: this.pLink }
     ]
    }
 
   ngOnChanges() {
     this.addminbar = [
       { title: 'Dashboard', icon: 'ion-ios-analytics-outline', link: '/admin' },
-      { title: 'Message', icon: 'ion-ios-chatboxes-outline', link: '/message' },
+      { title: 'Messages', icon: 'ion-ios-chatboxes-outline', link: this.mLink },
       { title: 'Add Project', icon: 'ion-ios-compose-outline', link: '/addproject' },
-      { title: 'Projects', icon: 'ion-ios-albums-outline', link: this.link }
+      { title: 'Projects', icon: 'ion-ios-albums-outline', link: this.pLink }
     ]
   }
 

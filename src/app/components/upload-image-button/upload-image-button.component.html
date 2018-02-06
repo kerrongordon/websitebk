@@ -1,6 +1,6 @@
 <label [for]="type + 'image'">
   <div class="icon"><i class="fas fa-plus-circle"></i></div>
-  <img #imageSrc class="image" [id]="type + 'imageSrc'" src="" alt="" (load)="onload($event)">
+  <img #imageSrc class="image" [id]="type + 'imageSrc'" src="{{ preImage }}" alt="" (load)="onload($event)">
   <div class="border"></div>
 
   <div class="buttons" [ngClass]="{'isUploading': uploading}">
@@ -8,28 +8,7 @@
     <kgp-button primary icon="ion-ios-pause" [ngClass]="{'pausehide': pauseUp}" (click)="pauseUpload()">Pause</kgp-button>
     <kgp-button secondary icon="ion-ios-play" [ngClass]="{'pausehide': !pauseUp}" (click)="resumeUpload()">Resume</kgp-button>
     <kgp-button danger icon="ion-ios-close" (click)="cancelUpload()">Cancel</kgp-button>
-  
-    <!-- <button type="button" class="btn primary" [ngClass]="{'pausehide': pauseUp}" (click)="pauseUpload()">
-      <div class="btnicon">
-        <i class="material-icons">pause</i>
-      </div>
-      <div>Pause</div>
-    </button> -->
-  
-    <!-- <button type="button" class="btn secondary" [ngClass]="{'pausehide': !pauseUp}" (click)="resumeUpload()">
-      <div class="btnicon">
-        <i class="material-icons">play_arrow</i>
-      </div>
-      <div>Resume</div>
-    </button> -->
-  
-    <!-- <button type="button" class="btn danger" (click)="cancelUpload()">
-      <div class="btnicon">
-        <i class="material-icons">cancel</i>
-      </div>
-      <div>Cancel</div>
-    </button> -->
-  
+    
   </div>
 </label>
 <input type="file" name="imageFile" [id]="type + 'image'" (change)="addfile($event)" accept="image/*">

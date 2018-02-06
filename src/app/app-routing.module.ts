@@ -20,11 +20,6 @@ const routes: Routes = [
     loadChildren: './pages/projects/projects.module#ProjectsModule'
   },
   {
-    path: 'message',
-    loadChildren: './pages/email/email.module#EmailModule',
-    canActivate: [AuthService]
-  },
-  {
     path: 'admin',
     loadChildren: './pages/dashboard/dashboard.module#DashboardModule',
     canActivate: [AuthService]
@@ -37,6 +32,11 @@ const routes: Routes = [
   {
     path: 'manageprojects',
     loadChildren: './pages/manage-projects/manage-projects.module#ManageProjectsModule',
+    canActivate: [AuthService]
+  },
+  {
+    path: 'messages',
+    loadChildren: './pages/manage-messages/manage-messages.module#ManageMessagesModule',
     canActivate: [AuthService]
   },
   {

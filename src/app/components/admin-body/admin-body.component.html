@@ -1,4 +1,13 @@
+<div *ngIf="projectData">
+  <article>
+    <header>
+      <h3 class="title">{{ projectData.title }}</h3>
+    </header>
 
-<div>
-  {{ projectData | json }}
+      <div [innerHTML]="projectData.markdown"></div>
+      <ng-content></ng-content>
+    <footer>
+      
+    </footer>
+  </article>
 </div>

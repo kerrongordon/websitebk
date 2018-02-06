@@ -34,6 +34,7 @@ export class ManageProjectsComponent implements OnInit, OnDestroy {
   loadurl() {
     return this.pageurl = this._avr.params.subscribe(() => {
       this.ids = this._avr.snapshot.params['id']
+      if (this.ids === 'all') { return }
       return this.project = this._ps.getProjectById(this.ids)
     })
   }

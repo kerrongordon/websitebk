@@ -7,10 +7,15 @@
   <span *ngIf="project"></span>
 </div>
 
+
 <div class="list" *ngIf="message">
-  <ng-content></ng-content>
+  <ng-container *ngTemplateOutlet="content"></ng-container>
 </div>
 
 <div class="list" *ngIf="project">
-  <ng-content></ng-content>
+  <ng-container *ngTemplateOutlet="content"></ng-container>
 </div>
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>

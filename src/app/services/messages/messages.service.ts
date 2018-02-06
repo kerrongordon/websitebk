@@ -11,6 +11,9 @@ export class MessagesService {
   private message: Observable<Email[]>
   private item = { open: true }
 
+  private doc: AngularFirestoreDocument<Email>
+  messageOb: Observable<Email>
+
   constructor(
     private _afs: AngularFirestore
   ) { }
@@ -20,10 +23,9 @@ export class MessagesService {
     return this.message = this.messageCollection.valueChanges()
   }
 
-  openMessage(id) {
-    this.openM = this._afs.collection<Email>('emails', ref => ref.where('id', '==', id))
-    this.openM.doc(id).update(this.item)
-    return this.openM.valueChanges()
+  openMessage(id: string) {
+    this.doc = this._afs.doc<Email>('emails/' + id)
+    return this.messageOb = this.doc.valueChanges()
   }
 
   deleteMessage(id) {
