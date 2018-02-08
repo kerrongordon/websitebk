@@ -8,6 +8,7 @@ import { AdminBarModule } from '@components/admin-bar/admin-bar.module'
 import { UploadImageButtonModule } from '@components/upload-image-button/upload-image-button.module'
 import { AutosizeDirective } from '@directives/autosize/autosize.directive'
 import { ButtonModule } from '@components/button/button.module'
+import { AutosizeModule } from '@directives/autosize/autosize.module'
 
 const routes: Routes = [
   { path: '', component: AddProjectComponent }
@@ -20,9 +21,10 @@ const routes: Routes = [
     UrlsanModule,
     AdminBarModule,
     ButtonModule,
+    AutosizeModule,
     UploadImageButtonModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AddProjectComponent, AutosizeDirective]
+  declarations: [AddProjectComponent]
 })
 export class AddProjectModule { }

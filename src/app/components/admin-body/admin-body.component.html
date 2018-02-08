@@ -1,30 +1,30 @@
-<div *ngIf="projectData">
+<div *ngIf="projectData; else noProject">
   <form (ngSubmit)="onSubmit(proUpdate.value, proUpdate.valid)" #proUpdate="ngForm">
     <article>
       <header>
-        <div>
+        <div class="inheader">
           <h3 class="title">
-            <span>{{ projectData.title }}</span>
-            <span><input type="text" id="title" required [(ngModel)]="projectData.title" name="title"></span>
+            <span [ngClass]="{'hide': !toggleEditView}">{{ projectData.title }}</span>
+            <span [ngClass]="{'hide': toggleEditView}"><input class="input" type="text" id="title" required [(ngModel)]="projectData.title" name="title" placeholder="Edit Post Title"></span>
           </h3>
-          <h5>
-            <span>{{ projectData.giturl }}</span>
-            <span><input type="text" id="giturl" required [(ngModel)]="projectData.giturl" name="giturl"></span>
-          </h5>
-          <h5>
-            <span>{{ projectData.weburl }}</span>
-            <span><input type="text" id="weburl" required [(ngModel)]="projectData.weburl" name="weburl"></span>
-          </h5>
+          <div class="giturl">
+            <span [ngClass]="{'hide': !toggleEditView}"><i class="ion-social-github"></i></span>
+            <span [ngClass]="{'hide': toggleEditView}"><input class="input" type="text" id="giturl" required [(ngModel)]="projectData.giturl" name="giturl" placeholder="Edit Github Url"></span>
+          </div>
+          <div class="weburl">
+            <span [ngClass]="{'hide': !toggleEditView}"><i class="ion-ios-paperplane"></i></span>
+            <span [ngClass]="{'hide': toggleEditView}"><input class="input" type="text" id="weburl" required [(ngModel)]="projectData.weburl" name="weburl" placeholder="Edit Website Url"></span>
+          </div>
         </div>
-        <div>
-          <kgp-button primary icon="ion-ios-compose">Edit</kgp-button>
-          <kgp-button primary icon="ion-ios-browsers">View</kgp-button>
+        <div class="togglebtn">
+          <kgp-button [ngClass]="{'hide': !toggleEditView}" primary icon="ion-ios-compose" (onClick)="toggleEditView = !toggleEditView">Edit</kgp-button>
+          <kgp-button [ngClass]="{'hide': toggleEditView}" primary icon="ion-ios-browsers" (onClick)="toggleEditView = !toggleEditView">View</kgp-button>
         </div>
       </header>
 
-        <div [innerHTML]="projectData.markdown"></div>
+        <div [ngClass]="{'hide': !toggleEditView}" [innerHTML]="projectData.markdown"></div>
         
-        <textarea kgpAutosize type="text" id="content" name="content" class="markDownInput" placeholder="Edit Markdown Here" [(ngModel)]="projectData.content"></textarea>
+        <textarea [ngClass]="{'hide': toggleEditView}" class="input" kgpAutosize type="text" id="content" name="content" class="markDownInput" placeholder="Edit Markdown Here" [(ngModel)]="projectData.content"></textarea>
 
         <ng-content></ng-content>
       <footer>
@@ -34,3 +34,12 @@
     </article>
   </form>
 </div>
+
+<ng-template #noProject>
+  <div class="load">
+    <div class="icon">
+      <i [class]="noDataIcon"></i>
+    </div>
+    <h3>{{ noDatatitle }}</h3>
+  </div>
+</ng-template>
