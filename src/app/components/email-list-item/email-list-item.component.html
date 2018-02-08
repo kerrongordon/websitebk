@@ -1,7 +1,0 @@
-<h4>
-  <div>{{ data.name }}</div>
-  <div class="icon"><i class="ion-ios-email close" [ngClass]="{'isActive': !data.open, 'tada': true }"></i><i class="ion-ios-email-outline open" [ngClass]="{'isActive': data.open }"></i></div>
-  <div class="time">{{ data.timestamp.time.hours }}:{{ data.timestamp.time.seconds }}</div>
-</h4>
-<h5>{{ data.subject }}</h5>
-<p>{{ data.message | truncate: 70 }}</p>
