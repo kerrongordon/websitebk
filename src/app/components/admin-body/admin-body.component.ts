@@ -12,6 +12,8 @@ export class AdminBodyComponent implements OnInit, OnChanges {
   @Input() projectData: Project
   @Input() messageData: Email
 
+  projectForm: Project
+
   constructor() { }
 
   ngOnChanges() {
@@ -20,6 +22,10 @@ export class AdminBodyComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+  }
+
+  onSubmit(data, valid) {
+    console.log('update ', data, valid)
   }
 
 }

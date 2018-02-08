@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router'
 import { EmailComponent } from './email.component'
 
 import { TruncateModule } from '@pipe/truncate/truncate.module'
-import { ReversePipe } from '@pipe/reverse/reverse.pipe'
 
 import { EmailListModule } from '@components/email-list/email-list.module'
 import { EmailListItemModule } from '@components/email-list-item/email-list-item.module'
@@ -27,6 +26,6 @@ const routes: Routes = [
     ButtonModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [EmailComponent, ReversePipe]
+  declarations: [EmailComponent]
 })
 export class EmailModule { }

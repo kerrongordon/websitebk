@@ -139,7 +139,7 @@ export class AddProjectComponent implements OnInit {
     }).then(e => {
       this.resetEmailForm()
       this.isLoading = 'ion-ios-compose'
-      return this.router.navigate(['/manageprojects'])
+      return this.router.navigate(['/manageprojects/all'])
     })
     .catch(error => {
       this.isLoading = 'ion-ios-compose'

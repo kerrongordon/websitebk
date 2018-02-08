@@ -1,13 +1,36 @@
 <div *ngIf="projectData">
-  <article>
-    <header>
-      <h3 class="title">{{ projectData.title }}</h3>
-    </header>
+  <form (ngSubmit)="onSubmit(proUpdate.value, proUpdate.valid)" #proUpdate="ngForm">
+    <article>
+      <header>
+        <div>
+          <h3 class="title">
+            <span>{{ projectData.title }}</span>
+            <span><input type="text" id="title" required [(ngModel)]="projectData.title" name="title"></span>
+          </h3>
+          <h5>
+            <span>{{ projectData.giturl }}</span>
+            <span><input type="text" id="giturl" required [(ngModel)]="projectData.giturl" name="giturl"></span>
+          </h5>
+          <h5>
+            <span>{{ projectData.weburl }}</span>
+            <span><input type="text" id="weburl" required [(ngModel)]="projectData.weburl" name="weburl"></span>
+          </h5>
+        </div>
+        <div>
+          <kgp-button primary icon="ion-ios-compose">Edit</kgp-button>
+          <kgp-button primary icon="ion-ios-browsers">View</kgp-button>
+        </div>
+      </header>
 
-      <div [innerHTML]="projectData.markdown"></div>
-      <ng-content></ng-content>
-    <footer>
-      
-    </footer>
-  </article>
+        <div [innerHTML]="projectData.markdown"></div>
+        
+        <textarea kgpAutosize type="text" id="content" name="content" class="markDownInput" placeholder="Edit Markdown Here" [(ngModel)]="projectData.content"></textarea>
+
+        <ng-content></ng-content>
+      <footer>
+        <kgp-button primary icon="ion-ios-compose" type="submit">Update</kgp-button>
+        <kgp-button danger icon="ion-ios-trash">Delete</kgp-button>
+      </footer>
+    </article>
+  </form>
 </div>
