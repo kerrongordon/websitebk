@@ -1,7 +1,7 @@
 <div *ngIf="projectData; else noProject">
   <form (ngSubmit)="onSubmit(proUpdate.value, proUpdate.valid)" #proUpdate="ngForm">
     <article>
-      <header>
+      <header [ngClass]="{growhead: !toggleEditView}">
         <div class="inheader">
           <h3 class="title">
             <span [ngClass]="{'hide': !toggleEditView}">
