@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev": "ng serve --host 0.0.0.0",
-    "prod": "ng build --prod --aot --build-optimizer"
+    "prod": "ng build --prod --build-optimizer"
   },
   "private": true,
   "dependencies": {

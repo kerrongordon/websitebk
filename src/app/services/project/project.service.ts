@@ -43,7 +43,10 @@ export class ProjectService {
   }
 
   deleteProject(id: string) {
-    return this._afs.collection<Project>('projects').doc(id).delete()
+    return this._afs
+      .collection<Project>('projects')
+      .doc(id)
+      .delete()
   }
 
 }

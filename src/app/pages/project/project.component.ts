@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs/Subscription'
 import { Project } from '@interface/Project'
 import { Observable } from 'rxjs/Observable'
 import { SeoService } from '@services/seo/seo.service'
+import { take } from 'rxjs/operator/take'
 
 @Component({
   selector: 'kgp-project',
