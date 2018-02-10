@@ -253,7 +253,53 @@ img
     font-weight: 400
     font-size: 1rem
     line-height: 1.8em
+    padding: 0
 
+// checkbox
+
+$size: 30px // change size
+$pad: 3px // change padding of the knob
+
+// $activeColor: $peimary
+// $inactiveColor: $fontPrimary
+// $knobColor: white
+
+$width: $size + $size
+
+// .container
+//   margin: 0 auto
+//   width: 960px
+  
+.checkboxlabel
+  display: block
+  width: $width
+  height: $size
+  cursor: pointer
+  background: $fontPrimary
+  border-radius: $size / 2
+  position: relative
+  transition: all 0.5s ease
+  
+  &:after 
+    content: ''
+    display: block
+    position: absolute
+    top: $pad
+    left: $pad
+    background: $light
+    width: $size - $pad - $pad
+    height: $size - $pad - $pad
+    border-radius: 50%
+    transition: all 0.2s ease
+  
+.checkboxinput[type=checkbox]
+  visibility: hidden
+  
+  &:checked + label
+    background: $primary
+  
+    &:after
+      left: $size + $pad
 
 // Admin page
 

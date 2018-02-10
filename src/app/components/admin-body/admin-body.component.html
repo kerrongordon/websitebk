@@ -4,7 +4,10 @@
       <header>
         <div class="inheader">
           <h3 class="title">
-            <span [ngClass]="{'hide': !toggleEditView}">{{ projectData.title }}</span>
+            <span [ngClass]="{'hide': !toggleEditView}">
+              {{ projectData.title }}
+              <span class="date">Posted On: {{ projectData.timestamp.weekday }} {{ projectData.timestamp.date }} {{ projectData.timestamp.year }}</span>
+            </span>
             <span [ngClass]="{'hide': toggleEditView}"><input class="input" type="text" id="title" required [(ngModel)]="projectData.title" name="title" placeholder="Edit Post Title"></span>
           </h3>
           <div class="giturl">
@@ -17,8 +20,8 @@
           </div>
         </div>
         <div class="togglebtn">
-          <kgp-button [ngClass]="{'hide': !toggleEditView}" primary icon="ion-ios-compose" (onClick)="toggleEditView = !toggleEditView">Edit</kgp-button>
-          <kgp-button [ngClass]="{'hide': toggleEditView}" primary icon="ion-ios-browsers" (onClick)="toggleEditView = !toggleEditView">View</kgp-button>
+            <input id="checkbox" class="checkboxinput" type="checkbox" (change)="toggleEditView = !toggleEditView" />
+            <label for="checkbox" class="checkboxlabel"></label>
         </div>
       </header>
 
