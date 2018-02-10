@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { UrlsanPipe } from './urlsan.pipe';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { UrlsanPipe } from './urlsan.pipe'
 
 @NgModule({
   imports: [

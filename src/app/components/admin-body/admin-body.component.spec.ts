@@ -1,25 +1,25 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { AdminBodyComponent } from './admin-body.component';
+import { AdminBodyComponent } from './admin-body.component'
 
 describe('AdminBodyComponent', () => {
-  let component: AdminBodyComponent;
-  let fixture: ComponentFixture<AdminBodyComponent>;
+  let component: AdminBodyComponent
+  let fixture: ComponentFixture<AdminBodyComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AdminBodyComponent ]
     })
-    .compileComponents();
-  }));
+    .compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminBodyComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(AdminBodyComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

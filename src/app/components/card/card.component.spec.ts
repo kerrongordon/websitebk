@@ -26,11 +26,6 @@ describe('CardComponent', () => {
       expect(app).toBeTruthy()
   }))
 
-  it('should return an link url string', async(() => {
-    const link = component.Link
-    expect(link).toString()
-  }))
-
   it('should render link tag', async(() => {
     const compiled = fixture.debugElement.nativeElement
     expect(compiled.querySelector('a'))

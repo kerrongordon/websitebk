@@ -1,25 +1,25 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { HeaderBarComponent } from './header-bar.component';
+import { HeaderBarComponent } from './header-bar.component'
 
 describe('HeaderBarComponent', () => {
-  let component: HeaderBarComponent;
-  let fixture: ComponentFixture<HeaderBarComponent>;
+  let component: HeaderBarComponent
+  let fixture: ComponentFixture<HeaderBarComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ HeaderBarComponent ]
     })
-    .compileComponents();
-  }));
+    .compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderBarComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(HeaderBarComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

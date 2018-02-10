@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
 import { HomeComponent } from './home.component'
 
-import { CenterModule } from '@directives/center/center.module'
-
 import { HeroModule } from '@components/hero/hero.module'
 import { CardModule } from '@components/card/card.module'
 import { FooterModule } from '@components/footer/footer.module'
@@ -22,7 +20,6 @@ import { ButtonModule } from '@components/button/button.module'
 @NgModule({
   imports: [
     CommonModule,
-    CenterModule,
     HeroModule,
     AvatarModule,
     DescriptionModule,
