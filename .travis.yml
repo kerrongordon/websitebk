@@ -6,10 +6,10 @@ node_js:
 branches:
   only:
     - master
+    - beta
     - /^greenkeeper/.*$/
 
 before_install:
-  - sudo apt install -y gzip
   - curl -o- -L https://yarnpkg.com/install.sh | bash
 
 install:
@@ -19,20 +19,11 @@ install:
   - yarn install
 
 script:
-  - ng build --prod --build-optimizer
-  - cd dist gzip -k -r * && cd ..
+  - yarn lint
+  - yarn prod
 
 deploy:
   - provider: firebase
     skip_cleanup: true
     token:
       secure: $FIREBASE_TOKEN
-
-  - provider: pages
-    skip_cleanup: true
-    local_dir: dist
-    repo: kerrongordon/kerrongordon.github.io
-    github_token: $GITHUB_TOKEN
-    target_branch: master
-    on:
-      branch: master
