@@ -42,4 +42,8 @@ export class ProjectService {
     return this.projectOb = this.doc.valueChanges()
   }
 
+  deleteProject(id: string) {
+    return this._afs.collection<Project>('projects').doc(id).delete()
+  }
+
 }

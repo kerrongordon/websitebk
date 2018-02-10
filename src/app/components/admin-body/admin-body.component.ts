@@ -25,11 +25,12 @@ export class AdminBodyComponent implements OnInit, OnChanges {
   ngOnChanges() {
     console.log('projectData ', this.projectData)
     console.log('messageData ', this.messageData)
+    if (this._rt.url === '/manageprojects/all') { this.pro() }
+    if (this._rt.url === '/messages/all') { this.mess() }
   }
 
   ngOnInit() {
-    if (this._rt.url === '/manageprojects/all') { this.pro() }
-    if (this._rt.url === '/messages/all') { this.mess() }
+
   }
 
   pro() {

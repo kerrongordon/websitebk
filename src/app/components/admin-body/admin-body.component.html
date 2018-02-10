@@ -27,10 +27,7 @@
         <textarea [ngClass]="{'hide': toggleEditView}" class="input" kgpAutosize type="text" id="content" name="content" class="markDownInput" placeholder="Edit Markdown Here" [(ngModel)]="projectData.content"></textarea>
 
         <ng-content></ng-content>
-      <footer>
-        <kgp-button primary icon="ion-ios-compose" type="submit">Update</kgp-button>
-        <kgp-button danger icon="ion-ios-trash">Delete</kgp-button>
-      </footer>
+
     </article>
   </form>
 </div>
