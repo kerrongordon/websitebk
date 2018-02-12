@@ -1,0 +1,21 @@
+<div *ngIf="data; else loading">
+  <h4>
+    <div>
+      <i class="ion-ios-pricetags-outline iconColor"></i>
+    </div>
+    <div class="title hideOText">{{ data.name | truncate: 25 }}</div>
+    <div class="icon">
+      <i class="ion-ios-email close iconColor" [ngClass]="{'isActive': !data.open, 'tada': true }"></i>
+      <i class="ion-ios-email-outline open" [ngClass]="{'isActive': data.open }"></i>
+    </div>
+    <div class="time">{{ data.timestamp.time.hours }}:{{ data.timestamp.time.seconds }}</div>
+  </h4>
+  <h5 class="hideOText">{{ data.subject | truncate: 20 }}</h5>
+  <p>{{ data.message | truncate: 70 }}</p>
+</div>
+
+<ng-template #loading>
+  <div class="facebookloading"></div>
+  <div class="facebookloading"></div>
+  <div class="facebookloading"></div>
+</ng-template>

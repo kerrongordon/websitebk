@@ -6,9 +6,9 @@ import { ManageProjectsComponent } from './manage-projects.component'
 import { AdminBarModule } from '@components/admin-bar/admin-bar.module'
 import { AdminBodyModule } from '@components/admin-body/admin-body.module'
 import { AdminSideBarModule } from '@components/admin-side-bar/admin-side-bar.module'
-import { AdminSideBarItemModule } from '@components/admin-side-bar-item/admin-side-bar-item.module'
 import { UploadImageButtonModule } from '@components/upload-image-button/upload-image-button.module'
 import { ButtonModule } from '@components/button/button.module'
+import { AdminSideBarItemProjectModule } from '@components/admin-side-bar-item-project/admin-side-bar-item-project.module'
 
 const routes: Routes = [
   { path: '',
@@ -25,10 +25,10 @@ const routes: Routes = [
     AdminBarModule,
     AdminBodyModule,
     AdminSideBarModule,
-    AdminSideBarItemModule,
     UploadImageButtonModule,
     DialogModule,
     ButtonModule,
+    AdminSideBarItemProjectModule,
     RouterModule.forChild(routes)
   ],
   declarations: [ManageProjectsComponent]

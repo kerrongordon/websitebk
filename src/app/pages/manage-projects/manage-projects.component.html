@@ -2,13 +2,26 @@
 
   <kgp-admin-bar pLink="/manageprojects/{{ ids }}"></kgp-admin-bar>
 
-  <kgp-admin-side-bar project="projects">
-    <kgp-admin-side-bar-item
+  <kgp-admin-side-bar>
+
+    <div class="sidebarheader">
+      <span></span>
+      <span>Edit Projects</span>
+      <span></span>
+    </div>
+
+    <kgp-admin-side-bar-item-project
       *ngFor="let data of (projects | async); index as i" 
-      [projectData]="data" [ngClass]="{'isActive': ids === data.id }"
+      [data]="data" [ngClass]="{'isActive': ids === data.id }"
       id="item{{ i }}" target="_self"
       routerLink="/manageprojects/{{ data.id }}" fragment="item{{ i }}">
-    </kgp-admin-side-bar-item>
+    </kgp-admin-side-bar-item-project>
+
+    <ng-container *ngIf="( projects | async ) == null">
+      <kgp-admin-side-bar-item-project *ngFor="let data of [1,2,3,4]">
+      </kgp-admin-side-bar-item-project>
+    </ng-container>
+    
   </kgp-admin-side-bar>
 
   <kgp-admin-body [projectData]="(project | async)">

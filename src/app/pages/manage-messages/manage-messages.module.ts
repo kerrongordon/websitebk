@@ -5,8 +5,8 @@ import { ManageMessagesComponent } from './manage-messages.component'
 import { AdminBarModule } from '@components/admin-bar/admin-bar.module'
 import { AdminBodyModule } from '@components/admin-body/admin-body.module'
 import { AdminSideBarModule } from '@components/admin-side-bar/admin-side-bar.module'
-import { AdminSideBarItemModule } from '@components/admin-side-bar-item/admin-side-bar-item.module'
 import { ReverseModule } from '@pipe/reverse/reverse.module'
+import { AdminSideBarItemMessageModule } from '@components/admin-side-bar-item-message/admin-side-bar-item-message.module'
 
 
 const routes: Routes = [
@@ -26,7 +26,7 @@ const routes: Routes = [
     AdminBarModule,
     AdminBodyModule,
     AdminSideBarModule,
-    AdminSideBarItemModule,
+    AdminSideBarItemMessageModule,
     RouterModule.forChild(routes)
   ],
   declarations: [ManageMessagesComponent]

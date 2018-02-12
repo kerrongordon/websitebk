@@ -2,14 +2,28 @@
 
   <kgp-admin-bar mLink="/messages/{{ ids }}"></kgp-admin-bar>
 
-  <kgp-admin-side-bar [message]="(messages | async)">
-    <kgp-admin-side-bar-item 
-      *ngFor="let data of (messages | async) | reverse; index as i" 
-      [emailData]="data" [ngClass]="{'isActive': ids === data.id }"
-      id="item{{ i }}" target="_self" 
-      routerLink="/messages/{{ data.id }}" fragment="item{{ i }}">
-    </kgp-admin-side-bar-item>
-  </kgp-admin-side-bar>
+    <kgp-admin-side-bar>
+
+      <div class="sidebarheader">
+          <span>Total ( )</span>
+          <span>New ( )</span>
+          <span>Read ( )</span>
+      </div>
+
+      <kgp-admin-side-bar-item-message 
+        *ngFor="let data of (messages | async) | reverse; index as i"
+        [data]="data" [ngClass]="{'isActive': ids === data.id }"
+        id="item{{ i }}" target="_self"
+        routerLink="/messages/{{ data.id }}" fragment="item{{ i }}">
+      </kgp-admin-side-bar-item-message>
+
+      <ng-container *ngIf="( messages | async ) == null">
+        <kgp-admin-side-bar-item-message *ngFor="let data of [1,2,3,4]">
+        </kgp-admin-side-bar-item-message>
+      </ng-container>
+
+    </kgp-admin-side-bar>
+
   
   <kgp-admin-body [messageData]="(message | async)"></kgp-admin-body>
 
