@@ -5,32 +5,33 @@
 
     <div class="header">
 
-      <div class="item projects">
+      <div class="item projects" *ngIf="(projects | async); let project">
         <div class="icon"><i class="ion-ios-pulse"></i></div>
         <div><h3>Projects</h3></div>
         <div>
-          <h1 *ngIf="projects | async; let project">{{ project.length }}</h1>
-          <h1 *ngIf="(projects | async) == null">0</h1>
+          <h1>{{ project.length }}</h1>
         </div>
       </div>
 
-      <div class="item skills">
+      <div class="item skills" *ngIf="(skills | async); let skill">
         <div class="icon"><i class="ion-ios-settings"></i></div>
         <div><h3>Skills</h3></div>
         <div>
-          <h1 *ngIf="skills | async; let skill">{{ skill.length }}</h1>
-          <h1 *ngIf="(skills | async) == null">0</h1>
+          <h1>{{ skill.length }}</h1>
         </div>
       </div>
 
-      <div class="item messages">
+      <div class="item messages" *ngIf="(messages | async); let message">
         <div class="icon"><i class="ion-ios-email-outline"></i></div>
         <div><h3>Messages</h3></div>
         <div>
-          <h1 *ngIf="messages | async; let message">{{ message.length }}</h1>
-          <h1 *ngIf="(messages | async) == null">0</h1>
+          <h1>{{ message.length }}</h1>
         </div>
       </div>
+
+      <div class="item facebookloading" *ngIf="(projects | async) === null"></div>
+      <div class="item facebookloading" *ngIf="(skills | async) === null"></div>
+      <div class="item facebookloading" *ngIf="(messages | async) === null"></div>
 
     </div> 
 
@@ -48,6 +49,16 @@
             <kgp-button primary icon="ion-ios-paperplane" type="submit">Save</kgp-button>
           </form>
         </div>
+        <div *ngIf="(skills | async) === null">
+          <div class="facebookloading"></div>
+          <div class="facebookloading"></div>
+          <div class="facebookloading"></div>
+          <div class="facebookloading"></div>
+          <div class="facebookloading"></div>
+          <div class="facebookloading"></div>
+          <div class="facebookloading"></div>
+          <div class="facebookloading"></div>
+        </div>
       </div>
 
       <div class="sidebars descripbar">
@@ -57,6 +68,16 @@
             <textarea class="input" [value]="des.content" (input)="des.content = $event.target.value"></textarea>
             <kgp-button primary icon="ion-ios-paperplane" type="submit">Save</kgp-button>
           </form>
+        </div>
+        <div *ngIf="(description | async) === null">
+          <div class="facebookloading"></div>
+          <div class="facebookloading"></div>
+          <div class="facebookloading"></div>
+          <div class="facebookloading"></div>
+          <div class="facebookloading"></div>
+          <div class="facebookloading"></div>
+          <div class="facebookloading"></div>
+          <div class="facebookloading"></div>
         </div>
       </div>
       

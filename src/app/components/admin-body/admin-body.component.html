@@ -1,4 +1,4 @@
-<div *ngIf="projectData; else noProject">
+<div *ngIf="projectData">
   <form (ngSubmit)="onSubmit(proUpdate.value, proUpdate.valid)" #proUpdate="ngForm">
     <article>
       <header [ngClass]="{growhead: !toggleEditView}">
@@ -35,11 +35,15 @@
   </form>
 </div>
 
-<ng-template #noProject>
+<div *ngIf="messageData">
+  {{ messageData | json }}
+</div>
+
+<div *ngIf="projecttogg || messagetogg">
   <div class="load">
     <div class="icon">
       <i [class]="noDataIcon"></i>
     </div>
     <h3>{{ noDatatitle }}</h3>
   </div>
-</ng-template>
+</div>
