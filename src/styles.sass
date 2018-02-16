@@ -309,6 +309,7 @@ $width: $size + $size
     overflow: hidden
     position: relative
     background: $adminbg
+    grid-template-columns: 100% 100%
 
     kgp-admin-bar
         bottom: 0
@@ -354,7 +355,7 @@ kgp-admin-side-bar
     filter: blur(4px)
 
 .dialogopen
-    display: block !important
+    display: grid !important
 
 
 @media screen and (min-width: 600px)

@@ -18,6 +18,7 @@ export class ManageProjectsComponent implements OnInit, OnDestroy {
   projects: Observable<Project[]>
 
   toggleDelete = false
+  mobileopen = false
 
   constructor(
     private _ps: ProjectService,
@@ -42,15 +43,25 @@ export class ManageProjectsComponent implements OnInit, OnDestroy {
     })
   }
 
+  openItem(path: string, id: string) {
+    return this._rt.navigate([`/manageprojects/${path}`], { fragment: `item${id}` })
+      .then(() => this.mobileopen = true )
+  }
+
+  closeItem() {
+    return this._rt.navigate(['/manageprojects/all'])
+      .then(() => this.mobileopen = false)
+  }
+
   deleteItem(id) {
     return this._ps.deleteProject(id)
     .then(e => {
       this.toggleDelete = !this.toggleDelete
-      this._rt.navigate(['/manageprojects/all'])
+      return this.closeItem()
     })
     .catch(error => {
       console.log(error)
-      this._rt.navigate(['/manageprojects/all'])
+      return this.closeItem()
     })
   }
 

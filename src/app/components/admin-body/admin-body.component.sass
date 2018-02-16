@@ -10,7 +10,12 @@
     overflow-x: hidden
     background: $light
     grid-template-columns: 1fr
+    transition: transform 0.4s ease
     box-shadow: -20px 0px 20px 0px rgba(213, 213, 228, 0.341176), -1px 0px 0px 0px rgba(0, 0, 0, 0.0313725)
+
+    &.mobileopen
+        z-index: 4
+        transform: translateX(-100%)
 
 article
     max-width: 800px
@@ -74,3 +79,12 @@ input
 .icon
     font-size: 200px
     color: $primary
+
+
+@media screen and (min-width: 600px)
+
+    \:host
+
+        &.mobileopen
+            z-index: 3
+            transform: translateX(0%)
