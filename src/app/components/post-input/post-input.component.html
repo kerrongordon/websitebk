@@ -1,0 +1,20 @@
+<div class="box" [ngClass]="{'blur': uploading}">
+  <div class="tabs">
+    <button (click)="toggleView = false" [ngClass]="{'active': !toggleView, 'drop': dragEvent}">Write</button>
+    <button (click)="toggleView = true" [ngClass]="{'active': toggleView}">Preview</button>
+  </div>
+
+  <div class="writebox" *ngIf="toggleView == false" [ngClass]="{'drop': dragEvent}">
+    <textarea (keyup)="textAreaChange()" class="markDownInput" [(ngModel)]="textAreaData"></textarea>
+  </div>
+
+  <div class="previewbox" *ngIf="toggleView == true">
+    <div [innerHTML]="markdown | urlsan"></div>
+  </div>
+</div>
+
+<div class="model" [ngClass]="{'show': uploading}">
+  <div class="modelin">
+    <kgp-progressbar [level]="uploadPercent"></kgp-progressbar>
+  </div>
+</div>

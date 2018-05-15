@@ -18,7 +18,10 @@
     "baseUrl": "src",
     "paths": {
       "@pipe/*": ["app/pipe/*"],
+      "@models/*": ["app/models/*"],
+      "@actions/*": ["app/actions/*"],
       "@exports/*": ["app/exports/*"],
+      "@reducers/*": ["app/reducers/*"],
       "@services/*": ["app/services/*"],
       "@interface/*": ["app/interface/*"],
       "@directives/*": ["app/directives/*"],

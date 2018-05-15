@@ -1,11 +1,11 @@
 <div *ngIf="data; else loading">
   <h4>
     <div>
-      <i class="ion-ios-pricetags-outline iconColor"></i>
+      <i class="ion-ios-pricetags-outline icon-color"></i>
     </div>
     <div class="title hideOText">{{ data.title | truncate: 25 }}</div>
     <div class="icon">
-      <i class="ion-ios-clock-outline iconColor"></i>
+      <i class="ion-ios-clock-outline icon-color"></i>
     </div>
     <div class="time">{{ data.timestamp.time.hours }}:{{ data.timestamp.time.seconds }}</div>
   </h4>

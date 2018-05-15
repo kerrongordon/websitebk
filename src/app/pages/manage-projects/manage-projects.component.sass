@@ -3,37 +3,35 @@
 \:host
     display: block
 
-.isActive
+.is-active
     background: $light
-    z-index: 4
-    box-shadow: -5px 0px 20px 3px rgba(210, 210, 210, 0.62)
 
-.imageGrid
+.image-grid
     display: grid
 
 .sidebarheader
-    top: 0
-    left: 0
-    right: 0
-    z-index: 6
-    color: $light
+    background: $adminbg
+    //color: $light
     display: grid
-    height: 28px
     font-size: 12px
-    position: sticky
-    text-align: center
-    background: $primary
     grid-template-columns: 1fr 1fr 1fr
+    height: 28px
+    left: 0
+    position: sticky
+    right: 0
+    text-align: center
+    top: 0
+    z-index: 6
 
 footer
-    text-align: center
-    padding: 2em 0
-    margin: 2em 0
     box-shadow: 0 -1px 0 #e0e0e0
+    margin: 2em 0
+    padding: 2em 0
+    text-align: center
 
 
 @media screen and (min-width: 1000px)
 
-    .imageGrid
-        grid-template-columns: 1fr 1fr
+    .image-grid
         align-items: flex-start
+        grid-template-columns: 1fr 1fr

@@ -4,8 +4,11 @@ import { SkillsService, Skills } from '@services/skills/skills.service'
 import { ProjectService } from '@services/project/project.service'
 import { SocialLink } from '@interface/social'
 import { Observable } from 'rxjs/Observable'
-import { Project } from '@interface/Project'
+// import { Project } from '@interface/Project'
 import { SeoService } from '@services/seo/seo.service'
+import { Project } from '@models/project.model'
+import { AppState } from '../../app.state'
+import { Store } from '@ngrx/store'
 
 @Component({
   selector: 'kgp-home',
@@ -16,8 +19,10 @@ import { SeoService } from '@services/seo/seo.service'
 export class HomeComponent implements OnInit {
 
   skills: Observable<Skills[]>
-  projects: Observable<Project[]>
+  // projects: Observable<Project[]>
   description: Observable<Description>
+
+  projects: Observable<Project[]>
 
   socialLink: SocialLink[] = [
     { link: 'https://www.facebook.com/kerron.gordon', title: 'facebook' },
@@ -32,14 +37,17 @@ export class HomeComponent implements OnInit {
     private _ds: DescriptionService,
     private _ss: SkillsService,
     private _ps: ProjectService,
-    private seo: SeoService
-  ) { }
+    private seo: SeoService,
+    private store: Store<AppState>
+  ) {
+    this.projects = store.select('Project')
+  }
 
   ngOnInit() {
     this.metaLoad()
     this.skills = this._ss.loadSkills()
     this.description = this._ds.loadDes()
-    this.projects = this._ps.loadProjectsHome()
+    // this.projects = this._ps.loadProjectsHome()
   }
 
   metaLoad() {

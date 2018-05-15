@@ -11,6 +11,8 @@ import { ServiceWorkerModule } from '@angular/service-worker'
 import { NotificationModule } from './components/notification/notification.module'
 import { AngularFireStorageModule } from 'angularfire2/storage'
 import { AngularFirestoreModule } from 'angularfire2/firestore'
+import { StoreModule } from '@ngrx/store'
+import { ProjectReducer } from '@reducers/project.reducer'
 
 @NgModule({
   declarations: [
@@ -25,7 +27,10 @@ import { AngularFirestoreModule } from 'angularfire2/firestore'
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    StoreModule.forRoot({
+      Project: ProjectReducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

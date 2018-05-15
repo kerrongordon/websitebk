@@ -1,5 +1,6 @@
 <div *ngIf="projectData">
-  <form (ngSubmit)="onSubmit(proUpdate.value, proUpdate.valid)" #proUpdate="ngForm">
+  <perfect-scrollbar>
+  <form (ngSubmit)="onSubmit(proUpdate.value, proUpdate.valid)" #proUpdate="ngForm" class="form">
     <article>
       <header [ngClass]="{growhead: !toggleEditView}">
         <div class="inheader">
@@ -33,6 +34,7 @@
 
     </article>
   </form>
+  </perfect-scrollbar>
 </div>
 
 <div *ngIf="messageData">

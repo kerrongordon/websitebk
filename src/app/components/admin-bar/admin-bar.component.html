@@ -1,13 +1,13 @@
 <div class="bar">
 
-    <div *ngFor="let item of addminbar" class="item" routerLinkActive="isActive" [routerLink]="item.link">
+    <div *ngFor="let item of addminbar" class="item" routerLinkActive="is-active" [routerLink]="item.link">
       <div class="icon"><i [class]="item.icon"></i></div>
-      <h5 class="menuTitle">{{ item.title }}</h5>
+      <h5 class="menu-title">{{ item.title }}</h5>
     </div>
 
-    <div class="item" routerLinkActive="isActive" (click)="logout()">
+    <div class="item" routerLinkActive="is-active" (click)="logout()">
       <div class="icon"><i class="ion-ios-undo-outline"></i></div>
-      <h5 class="menuTitle">LogOut</h5>
+      <h5 class="menu-title">LogOut</h5>
     </div>
 
 </div>

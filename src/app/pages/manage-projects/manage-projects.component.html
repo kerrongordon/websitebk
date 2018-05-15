@@ -12,7 +12,7 @@
 
     <kgp-admin-side-bar-item-project
       *ngFor="let data of (projects | async); index as i" 
-      [data]="data" [ngClass]="{'isActive': ids === data.id }"
+      [data]="data" [ngClass]="{'is-active': ids === data.id }"
       id="item{{ i }}" target="_self" (click)="openItem(data.id, i)">
     </kgp-admin-side-bar-item-project>
 
@@ -23,16 +23,16 @@
     
   </kgp-admin-side-bar>
 
-  <kgp-admin-body [projectData]="(project | async)" [ngClass]="{mobileopen: mobileopen}">
-    <div class="imageGrid" *ngIf="project | async; let project;">
-      <kgp-upload-image-button id="smaill" type="small" [postTitle]="project.title" [preImage]="project.image.small.url" (downloadURLOut)="geturlSmaill($event)"></kgp-upload-image-button>
-      <kgp-upload-image-button id="big" type="big" [postTitle]="project.title" [preImage]="project.image.big.url" (downloadURLOut)="geturlBig($event)"></kgp-upload-image-button>
-    </div>
-    <footer>
-      <kgp-button primary icon="ion-ios-compose" type="submit">Update</kgp-button>
-      <kgp-button danger icon="ion-ios-trash" (onClick)="toggleDelete = !toggleDelete">Delete</kgp-button>
-    </footer>
-  </kgp-admin-body>
+    <kgp-admin-body [projectData]="(project | async)" [ngClass]="{mobileopen: mobileopen}">
+      <div class="image-grid" *ngIf="project | async; let project;">
+        <kgp-upload-image-button id="smaill" type="small" [postTitle]="project.title" [preImage]="project.image.small.url" (downloadURLOut)="geturlSmaill($event)"></kgp-upload-image-button>
+        <kgp-upload-image-button id="big" type="big" [postTitle]="project.title" [preImage]="project.image.big.url" (downloadURLOut)="geturlBig($event)"></kgp-upload-image-button>
+      </div>
+      <footer>
+        <kgp-button primary icon="ion-ios-compose" type="submit">Update</kgp-button>
+        <kgp-button danger icon="ion-ios-trash" (onClick)="toggleDelete = !toggleDelete">Delete</kgp-button>
+      </footer>
+    </kgp-admin-body>
 
 </div>
 

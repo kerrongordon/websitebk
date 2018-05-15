@@ -40,6 +40,11 @@ const routes: Routes = [
     canActivate: [AuthService]
   },
   {
+    path: 'addpost',
+    loadChildren: './pages/add-post/add-post.module#AddPostModule',
+    canActivate: [AuthService]
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full'

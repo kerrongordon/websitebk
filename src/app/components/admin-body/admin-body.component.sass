@@ -1,25 +1,24 @@
 @import '../../var'
 
 \:host
-    z-index: 3
-    display: grid
-    height: 100vh
-    padding: 1em
-    position: relative
-    overflow-y: scroll
-    overflow-x: hidden
     background: $light
+    display: grid
     grid-template-columns: 1fr
-    transition: transform 0.4s ease
-    box-shadow: -20px 0px 20px 0px rgba(213, 213, 228, 0.341176), -1px 0px 0px 0px rgba(0, 0, 0, 0.0313725)
+    height: 100vh
+    position: relative
+    transition: transform .4s ease
 
     &.mobileopen
-        z-index: 4
         transform: translateX(-100%)
+        z-index: 4
+
+.form
+    height: 100vh
+    padding: 1em
 
 article
-    max-width: 800px
     margin: 0 auto
+    max-width: 800px
 
 header
     display: grid

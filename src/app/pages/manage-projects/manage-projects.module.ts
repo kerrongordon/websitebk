@@ -10,6 +10,16 @@ import { UploadImageButtonModule } from '@components/upload-image-button/upload-
 import { ButtonModule } from '@components/button/button.module'
 import { AdminSideBarItemProjectModule } from '@components/admin-side-bar-item-project/admin-side-bar-item-project.module'
 
+import {
+  PerfectScrollbarModule,
+  PERFECT_SCROLLBAR_CONFIG,
+  PerfectScrollbarConfigInterface
+} from 'ngx-perfect-scrollbar'
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+}
+
 const routes: Routes = [
   { path: '',
     children: [
@@ -28,9 +38,14 @@ const routes: Routes = [
     UploadImageButtonModule,
     DialogModule,
     ButtonModule,
+    PerfectScrollbarModule,
     AdminSideBarItemProjectModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ManageProjectsComponent]
+  declarations: [ManageProjectsComponent],
+  providers: [{
+    provide: PERFECT_SCROLLBAR_CONFIG,
+    useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+  }]
 })
 export class ManageProjectsModule { }

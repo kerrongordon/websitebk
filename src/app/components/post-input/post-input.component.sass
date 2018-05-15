@@ -1,0 +1,66 @@
+@import ../../var.sass
+
+.box
+    width: 100%
+    height: 100%
+    position: relative
+
+textarea,
+    width: 100%
+    height: 100%
+    padding: 1em
+
+.previewbox
+    padding: 1em
+    
+.previewbox,
+.writebox
+    width: 100%
+    height: 94%
+    overflow-y: scroll
+    background-color: beige
+    transition: all 0.3s ease-in-out
+
+.writebox
+    overflow: hidden
+
+button
+    border: none
+    padding: 10px 20px
+    cursor: pointer
+    outline: none
+    background-color: transparent
+    transition: all 0.3s ease-in-out
+
+.model
+    display: none
+
+    &.show
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        display: block
+        background: rgba(0,0,0, 0.2)
+
+.modelin
+    position: absolute
+    width: 200px
+    background: #ffffff
+    padding: 0.5em
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    border-radius: 3px
+    box-shadow: 0 5px 10px 2px rgba(0,0,0, 0.2)
+
+.active
+    background-color: beige
+
+.blur
+    filter: blur(5px)
+
+.drop
+    background-color: $primary
+    color: $light

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core'
+import { Component, OnInit, Input, OnChanges, OnDestroy } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { Project } from '@interface/Project'
 import { Email } from '@interface/email'
@@ -8,7 +8,9 @@ import { Email } from '@interface/email'
   templateUrl: './admin-body.component.html',
   styleUrls: ['./admin-body.component.sass']
 })
-export class AdminBodyComponent implements OnInit, OnChanges {
+export class AdminBodyComponent implements OnInit, OnChanges, OnDestroy {
+
+  noProjectTimeOut: any
 
   @Input() projectData: Project = null
   @Input() messageData: Email = null
@@ -44,9 +46,11 @@ export class AdminBodyComponent implements OnInit, OnChanges {
   }
 
   pro() {
-    this.noDataIcon = 'ion-ios-filing-outline'
-    this.noDatatitle = 'No Project Selected'
-    this.projecttogg = !this.projecttogg
+    return this.noProjectTimeOut = setTimeout(() => {
+      this.noDataIcon = 'ion-ios-filing-outline'
+      this.noDatatitle = 'No Project Selected'
+      this.projecttogg = !this.projecttogg
+    }, 500)
   }
 
   mess() {
@@ -57,6 +61,10 @@ export class AdminBodyComponent implements OnInit, OnChanges {
 
   onSubmit(data, valid) {
     console.log('update ', data, valid)
+  }
+
+  ngOnDestroy() {
+    clearTimeout(this.noProjectTimeOut)
   }
 
 }

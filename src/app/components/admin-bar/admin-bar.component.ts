@@ -16,19 +16,19 @@ export class AdminBarComponent implements OnChanges {
   constructor(
     private _as: AuthService
   ) {
-    this.addminbar = [
-      { title: 'Dashboard', icon: 'ion-ios-analytics-outline', link: '/admin' },
-      { title: 'Messages', icon: 'ion-ios-chatboxes-outline', link: this.mLink },
-      { title: 'Add Project', icon: 'ion-ios-compose-outline', link: '/addproject' },
-      { title: 'Projects', icon: 'ion-ios-albums-outline', link: this.pLink }
-    ]
+    this.adminBarIcons()
    }
 
   ngOnChanges() {
-    this.addminbar = [
+    this.adminBarIcons()
+  }
+
+  adminBarIcons() {
+    return this.addminbar = [
       { title: 'Dashboard', icon: 'ion-ios-analytics-outline', link: '/admin' },
       { title: 'Messages', icon: 'ion-ios-chatboxes-outline', link: this.mLink },
       { title: 'Add Project', icon: 'ion-ios-compose-outline', link: '/addproject' },
+      { title: 'Add Post', icon: 'ion-ios-compose-outline', link: '/addpost' },
       { title: 'Projects', icon: 'ion-ios-albums-outline', link: this.pLink }
     ]
   }

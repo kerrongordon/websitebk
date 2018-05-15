@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { Project } from '@interface/Project'
 
 @Component({
@@ -6,13 +6,8 @@ import { Project } from '@interface/Project'
   templateUrl: './admin-side-bar-item-project.component.html',
   styleUrls: ['./admin-side-bar-item-project.component.sass']
 })
-export class AdminSideBarItemProjectComponent implements OnInit {
+export class AdminSideBarItemProjectComponent {
 
   @Input() data: Project
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }
